@@ -17,6 +17,7 @@
 /web/wp-*.php
 /web/xmlrpc.php
 
+/wordpress_config.yml
 # Configuration
 wp-config.php
 
