@@ -1,0 +1,55 @@
+.global-banner {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: rem(6);
+    background-image: url("../svg/rainbow-border.svg");
+    margin: 0 -100vw;
+    padding: 0 100vw;
+    z-index: 1;
+  }
+  @include mq($bp-mob) {
+    flex-direction: row;
+  }
+}
+
+.global-banner__image {
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+  @include mq($bp-mob) {
+    width: 40%;
+  }
+}
+
+.global-banner__body {
+  padding: rem(20);
+  h2 {
+    margin-top: 0;
+  }
+  h3.kicker {
+    font-size: rem(16);
+    margin: 0;
+    @include mq($bp-mob) {
+      font-size: rem(20);
+    }
+  }
+  a {
+    font-size: rem(16);
+  }
+  p {
+    font-size: rem(18);
+  }
+  @include mq($bp-mob) {
+    padding: rem(50) rem(30) rem(30);
+    width: 60%;
+  }
+}

@@ -1,0 +1,134 @@
+.event {
+  .component {
+    > div {
+      :first-child {
+        padding-top: 0;
+        @include mq($bp-mob) {
+          padding-top: 0;
+        }
+      }
+    }
+    &:before {
+      display: none;
+    }
+  }
+}
+
+div.event-details {
+  padding-bottom: 0;
+  p {
+    align-items: center;
+    display: flex;
+    font-weight: 700;
+    &:before {
+      content: "";
+      display: block;
+      height: rem(44);
+      width: rem(44);
+    }
+    &.location {
+      &:before {
+        background: url(../svg/location.svg) no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+    &.time {
+      &:before {
+        background: url(../svg/clock.svg) no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+// Events Landing
+
+.events__featured-event {
+  border-radius: rem(12);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+  margin-bottom: rem(30);
+  @include mq($bp-mob) {
+    margin-bottom: rem(50);
+  }
+}
+
+.events__featured-event__content {
+  display: flex;
+  flex-direction: column;
+  .featured-event__image,
+  .events__featured-event__body {
+    @include mq($bp-mob) {
+      width: 50%;
+    }
+  }
+  .events__featured-event__body {
+    padding: rem(20);
+    h3 {
+      margin-top: 0;
+    }
+    p {
+      margin-top: rem(10);
+    }
+  }
+  @include mq($bp-mob) {
+    flex-direction: row;
+  }
+}
+
+.events-listing {
+  @include mq($bp-mob) {
+    display: grid;
+    gap: rem(20);
+    grid-template-columns: repeat(auto-fit, minmax(rem(340), 1fr));
+    justify-content: space-evenly;
+    list-style: none;
+  }
+}
+
+.event-card {
+  border-radius: rem(12);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  h3 {
+    margin-top: 0;
+  }
+  &:not(:last-child) {
+    margin-bottom: rem(20);
+  }
+  @include mq($bp-mob) {
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.event-card__image {
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.event-card__image,
+.featured-event__image {
+  position: relative;
+  .notice {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: rem(26);
+    font-weight: 700;
+    left: rem(5);
+    padding: rem(5);
+    position: absolute;
+    text-align: center;
+    top: rem(5);
+  }
+}
+
+.event-card__body {
+  padding: rem(20);
+}

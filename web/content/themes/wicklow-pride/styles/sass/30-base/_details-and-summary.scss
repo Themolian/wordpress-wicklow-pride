@@ -1,0 +1,68 @@
+/*------------------------------------*\
+    #Details and summary elements
+\*------------------------------------*/
+
+details {
+	margin-block-end: rem(16);
+	margin-block-start: rem(16);
+}
+
+
+summary {
+	color: $link-color;
+	cursor: pointer;
+	display: inline-block;
+	padding-inline-start: rem(25);
+	position: relative;
+
+	&::before {
+		block-size: 0;
+		border-color: transparent;
+		border-inline-start-color: inherit;
+		border-style: solid;
+		border-width: 7px 0 7px 12.124px;
+		clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+		content: '';
+		display: block;
+		inline-size: 0;
+		inset-block-end: 0;
+		inset-block-start: rem(-1);
+		inset-inline-start: 0;
+		margin: auto;
+		position: absolute;
+	}
+
+	&::-webkit-details-marker {
+		display: none;
+	}
+
+	&:hover {
+		color: $link-color--hover;
+	}
+
+	span {
+		display: inline-block;
+		padding-block-end: rem(10);
+		padding-block-start: rem(10);
+		text-decoration: underline;
+		text-decoration-skip: auto; // Supported by Safari
+		text-decoration-skip-ink: auto; // Not supported by Safari
+	}
+}
+
+
+details[open] > summary {
+	margin-block-end: rem(16);
+}
+
+
+details[open] > summary::before {
+	transform: rotate(90deg);
+}
+
+
+[dir="rtl"] {
+	summary::before {
+		transform: rotate(180deg);
+	}
+}

@@ -1,0 +1,34 @@
+.form {
+  form {
+    max-width: rem(600);
+    padding-bottom: rem(50);
+    label {
+      font-size: rem(18);
+      font-weight: bold;
+      display: block;
+      padding-bottom: rem(5);
+    }
+    input,
+    textarea {
+      appearance: none;
+      background: none;
+      box-shadow: none;
+      box-sizing: border-box;
+      border: rem(3) solid black;
+      border-radius: rem(12);
+      width: 100%;
+      padding: rem(10) rem(20);
+      &:focus {
+        border-color: lighten(black, 30%);
+      }
+    }
+    button {
+      cursor: pointer;
+      min-width: rem(200);
+      margin-top: rem(50);
+    }
+    .form-field {
+      margin-top: rem(20);
+    }
+  }
+}

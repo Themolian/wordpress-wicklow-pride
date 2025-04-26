@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    #Disclosure widget
+\*------------------------------------*/
+
+.no-js {
+	[data-toggle="true"] {
+		display: none;
+	}
+
+	[data-toggle="true"] + * {
+		display: initial;
+	}
+}
+
+[data-toggle="true"] {
+	svg {
+		pointer-events: none;
+	}
+
+	&[aria-expanded="false"] {
+		.expand-less {
+			display: none;
+		}
+
+		+ * {
+			display: none;
+		}
+	}
+
+	&[aria-expanded="true"] {
+		.expand-more {
+			display: none;
+		}
+
+		+ * {
+			display: block;
+		}
+	}
+}
+
+[data-toggle="true"] + * {
+	margin-block-start: 1rem;
+}

@@ -1,0 +1,62 @@
+.featured-event {
+  text-align: center;
+  h2 {
+    margin: 0;
+  }
+}
+
+.featured-event__card {
+  border-radius: rem(12);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  margin: rem(30) 0;
+  max-height: rem(500);
+  overflow: hidden;
+  @include mq($bp-mob) {
+    margin: rem(50) 0;
+    flex-direction: row;
+  }
+}
+
+.featured-event__image,
+.featured-event__body {
+  @include mq($bp-mob) {
+    width: 50%;
+  }
+}
+
+.featured-event__image {
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.featured-event__body {
+  padding: rem(20);
+  text-align: left;
+
+  h3 {
+    margin-top: rem(4);
+  }
+}
+
+time {
+  align-items: center;
+  display: flex;
+  font-size: rem(18);
+  font-weight: 700;
+  &:before {
+    background: url(../svg/calendar.svg) no-repeat;
+    background-position: center;
+    background-size: contain;
+    content: "";
+    display: block;
+    height: rem(20);
+    margin-right: rem(10);
+    width: rem(20);
+  }
+}

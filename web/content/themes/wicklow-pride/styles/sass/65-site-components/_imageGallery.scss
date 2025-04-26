@@ -1,0 +1,50 @@
+.image-gallery {
+  .splide__slide {
+    border-radius: rem(12);
+    overflow: hidden;
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+    .image-caption {
+      background-color: white;
+      border: 3px solid black;
+      border-bottom-left-radius: rem(12);
+      border-bottom-right-radius: rem(12);
+      bottom: 0;
+      color: black;
+      font-weight: 700;
+      left: 0;
+      margin: 0;
+      padding: rem(10) 0;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
+  .splide__arrow {
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+.photography-credit {
+  background: rgba(255, 255, 255, 0.7);
+  border: 3px solid black;
+  border-bottom-left-radius: rem(12);
+  border-top-right-radius: rem(12);
+  font-size: rem(14);
+  font-weight: 700;
+  margin: 0;
+  padding: rem(10) rem(5);
+  position: absolute;
+  right: 0;
+  top: 0;
+  a {
+    color: black;
+  }
+}

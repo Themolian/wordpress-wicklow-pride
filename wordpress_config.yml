@@ -1,0 +1,26 @@
+wordpress:
+  database_host: wicklowpride
+  database_name: db
+  database_user: db
+  database_password: db
+  database_table_prefix: wp_
+  wp_core_directory: wordpress
+  site_name: Wicklow Pride
+  site_url: wicklowpride.ddev.site
+  admin_email: jamie@jamiecurran.tech
+  admin_username: jamie
+  admin_password:
+  plugins_enabled:
+    - acf-content-analysis-for-yoast-seo
+    - all-in-one-wp-security-and-firewall
+    - duracelltomi-google-tag-manager
+    - relevanssi
+    - wordpress-seo
+    - members
+    - autoptimize
+    - redirection
+    - timber-library
+    - wp-sitemap-page
+  plugins_disabled:
+    - regenerate-thumbnails
+    - wp-example-content

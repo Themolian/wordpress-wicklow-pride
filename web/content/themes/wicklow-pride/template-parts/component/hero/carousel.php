@@ -1,0 +1,1 @@
+<h2>This is the hero carousel</h2>

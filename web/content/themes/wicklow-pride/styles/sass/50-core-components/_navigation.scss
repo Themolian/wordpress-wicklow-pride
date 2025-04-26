@@ -1,0 +1,83 @@
+/*------------------------------------*\
+    #Navigation core
+\*------------------------------------*/
+
+.nav ul,
+.nav ul * + * {
+  margin: 0;
+}
+
+[data-nav="submenu"] {
+  padding-left: rem(20);
+}
+
+/**
+Using a.nav-link rather than just .nav-link is deliberate here to avoid unwanted styles
+on buttons created via JS for toggling dropdown navigation (they retain the nav-link class)
+ */
+a.nav-link {
+  color: $link-color;
+  display: block;
+  line-height: normal;
+  padding: rem(9) rem(14);
+
+  &:hover {
+    color: $link-color--hover;
+    outline-width: 0; /* 2 */
+  }
+
+  &:active {
+    color: $off-black;
+    outline-width: 0; /* 2 */
+  }
+}
+
+.menu-toggle {
+  width: rem(44);
+  height: rem(44);
+  position: relative;
+  z-index: 50;
+  cursor: pointer;
+  display: block;
+
+  span {
+    display: block;
+    text-indent: rem(-9999);
+    position: absolute;
+    height: rem(2);
+    left: rem(10);
+    right: rem(10);
+    background-color: black;
+    border-radius: 1px;
+    -webkit-transition: 0.15s all;
+    transition: 0.15s all;
+    &.line-1 {
+      top: 14px;
+    }
+    &.line-2 {
+      top: 50%;
+      margin-top: -1px;
+    }
+    &.line-3 {
+      bottom: rem(14);
+    }
+  }
+  &.active {
+    span {
+      &.line-1 {
+        transform: rotate(45deg);
+        top: rem(21);
+      }
+      &.line-2 {
+        opacity: 0;
+      }
+      &.line-3 {
+        transform: rotate(-45deg);
+        bottom: rem(21);
+      }
+    }
+  }
+  @media (min-width: 600px) {
+    display: none;
+  }
+}

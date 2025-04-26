@@ -1,0 +1,143 @@
+/*------------------------------------*\
+    #Global footer
+
+    1. Needed for sticky footer
+    2. Because autoprefixer does not cover IE grid
+
+    Amplify uses the grid implementation of the sticky footer
+    from https://css-tricks.com/couple-takes-sticky-footer/ -
+
+   The footer isn't sticky in IE, but the flexbox alternative
+   results in display issues, caused by components with overflow
+   not set to visible (e.g. carousels) if used within the sidebar layout.
+
+\*------------------------------------*/
+
+.global-footer {
+  grid-row-start: 2; /* 1 */
+  -ms-grid-row: 2; /* 2 */
+  grid-row-end: 3; /* 1 */
+  -ms-grid-row-span: 1; /* 2 */
+  padding-block-end: rem(25);
+  padding-block-start: rem(20);
+  padding-inline: 0;
+
+  .l-center {
+    @include stack(1rem);
+  }
+
+  a,
+  .copyright {
+    @include text-17;
+  }
+
+  a {
+    color: $off-black;
+
+    &:visited,
+    &:hover,
+    &:active {
+      color: $off-black;
+    }
+  }
+}
+
+.footer {
+  font-size: rem(16);
+  padding: 0 rem(20);
+  a,
+  p {
+    font-weight: 700;
+  }
+  p {
+    margin: rem(10) 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  p:first-child {
+    margin-top: 0;
+  }
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: rem(6);
+    background-image: url("../svg/rainbow-border.svg");
+    margin: 0 -100vw;
+    padding: 0 100vw;
+  }
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  max-inline-size: rem($max-inline-size);
+  margin-inline: auto;
+  padding: rem(40) 0;
+  @include mq($bp-mob) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer-col {
+  padding: rem(20) 0;
+}
+
+.footer-contact {
+  a {
+    display: block;
+  }
+}
+
+.footer-socials {
+  align-items: center;
+  display: flex;
+
+  a {
+    align-items: center;
+    border: 3px solid #000;
+    border-radius: 100%;
+    display: flex;
+    height: rem(44);
+    justify-content: center;
+    transition: 0.2s all;
+    width: rem(44);
+    img {
+      height: 100%;
+      max-height: rem(20);
+      object-fit: contain;
+      width: 100%;
+    }
+    &:hover {
+      transform: translateY(rem(-5));
+    }
+    &:not(:first-child) {
+      margin-left: rem(20);
+    }
+  }
+}
+
+a.mail {
+  margin-top: rem(16);
+}
+
+a.mail,
+a.phone {
+  align-items: center;
+  display: flex;
+  img {
+    display: block;
+    height: rem(20);
+    margin-right: rem(10);
+    width: rem(20);
+  }
+}
