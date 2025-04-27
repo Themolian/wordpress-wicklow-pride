@@ -32,5 +32,7 @@
                 <a href="<?php echo $link ?>" class="button button--ghost button--ghost--border">Check it out</a>
             </div>
         </article>
+        <?php wp_reset_postdata(); ?>
+        <a href="<?php echo get_site_url(); ?>/events" class="button button--ghost button--ghost--border">All Events</a>
     </div>
 </section>
