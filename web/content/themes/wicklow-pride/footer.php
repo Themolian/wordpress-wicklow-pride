@@ -10,7 +10,8 @@
  */
 
 ?>
-
+	<?php get_template_part('template-parts/global/newsletter'); ?>
+	<?php get_template_part('template-parts/global/global-banner'); ?>
 	<footer class="footer">
 		<div class="footer-inner">
 			<div class="footer-col footer-logo">
