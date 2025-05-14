@@ -29,12 +29,14 @@
 			<div class="header-logo">
 				<img src="<?php echo get_field('organisation_logo', 'options')['url'] ?>" alt="Wicklow Pride">
 			</div>
-			<nav class="main-navigation">
+			<nav class="main-navigation" data-component="nav-double" aria-label="Main Navigation">
 				<?php
 					wp_nav_menu(
 						array(
-							'theme_location' => 'main-navigation',
-							'menu_id'        => 'main-navigation',
+							'theme_location' => 'primary-menu',
+							'container' => false,
+							'menu-id' => '',
+							'menu_class' => 'clean-list'
 						)
 					);
 				?>

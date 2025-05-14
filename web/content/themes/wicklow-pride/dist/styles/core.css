@@ -1990,8 +1990,8 @@ min-inline-size, so that either of these properties is applied instead.
   margin-top: 0;
   position: relative;
   /*
-    Nav Borders
-  */
+       Nav Borders
+     */
 }
 .main-navigation ul li a {
   color: black;
@@ -2041,7 +2041,7 @@ min-inline-size, so that either of these properties is applied instead.
 .main-navigation ul li:nth-child(7):before, .main-navigation ul li:nth-child(7):after {
   background-color: #ff64ad;
 }
-.main-navigation ul li:hover ul.submenu, .main-navigation ul li:focus-within ul.submenu, .main-navigation ul li.active ul.submenu {
+.main-navigation ul li:hover ul.children, .main-navigation ul li:focus-within ul.children, .main-navigation ul li.active ul.children {
   -webkit-transform: translateX(-50%) translateY(4px);
           transform: translateX(-50%) translateY(4px);
   opacity: 1;
@@ -2056,7 +2056,7 @@ min-inline-size, so that either of these properties is applied instead.
   }
 }
 
-ul.submenu {
+ul.children {
   display: block;
   min-width: 9.375rem;
   position: absolute;
@@ -2071,7 +2071,7 @@ ul.submenu {
   transition: 0.2s all;
   pointer-events: none;
 }
-ul.submenu li {
+ul.children li {
   min-width: 9.375rem;
   width: 100%;
   background-color: white;
@@ -2079,15 +2079,15 @@ ul.submenu li {
   overflow: hidden;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
-ul.submenu li:first-child {
+ul.children li:first-child {
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
 }
-ul.submenu li:last-child {
+ul.children li:last-child {
   border-bottom-left-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
 }
-ul.submenu li a {
+ul.children li a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2096,13 +2096,13 @@ ul.submenu li a {
   width: 100%;
   transition: 0.2s all;
 }
-ul.submenu li a:hover {
+ul.children li a:hover {
   background-color: #e6e6e6;
 }
-ul.submenu li::before {
+ul.children li::before {
   display: none;
 }
-ul.submenu li::after {
+ul.children li::after {
   display: block;
   width: 100%;
   position: static;
