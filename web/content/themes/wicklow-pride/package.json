@@ -1,46 +1,84 @@
 {
-  "name": "underscores",
-  "version": "1.0.0",
-  "description": "Hi. I'm a starter theme called _s, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.",
-  "author": "Automattic Theme Team",
-  "license": "GPL-2.0-or-later",
-  "keywords": [
-    "WordPress",
-    "Theme"
-  ],
-  "homepage": "https://github.com/Automattic/_s#readme",
+  "name": "amplify",
+  "version": "1.0.1",
+  "description": "Front-End starter kit for Studio 24",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Automattic/_s.git"
+    "url": "git+https://github.com/studio24/amplify.git"
   },
+  "author": "Studio 24",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Automattic/_s/issues"
+    "url": "https://github.com/studio24/amplify/issues"
   },
-  "devDependencies": {
-    "@wordpress/scripts": "^19.2.2",
-    "dir-archiver": "^1.1.1",
-    "node-sass": "^7.0.1",
-    "rtlcss": "^3.5.0"
-  },
-  "rtlcssConfig": {
-    "options": {
-      "autoRename": false,
-      "autoRenameStrict": false,
-      "blacklist": {},
-      "clean": true,
-      "greedy": false,
-      "processUrls": false,
-      "stringMap": []
-    },
-    "plugins": [],
-    "map": false
+  "homepage": "https://github.com/studio24/amplify#readme",
+  "browserslist": [
+    ">0.1%",
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Edge versions",
+    "last 2 Samsung versions",
+    "Safari >= 12.1",
+    "iOS >= 12.1",
+    "not dead"
+  ],
+  "config": {
+    "from": "assets-src",
+    "to": "dist"
   },
   "scripts": {
-    "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
-    "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
-    "compile:rtl": "rtlcss style.css style-rtl.css",
-    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
-    "lint:js": "wp-scripts lint-js 'js/*.js'",
-    "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
+    "fonts": "shx cp -r assets-src/fonts/* dist/fonts",
+    "images": "shx cp -r assets-src/images/* dist/images",
+    "svgs": "svgo --folder=assets-src/svg --output=dist/svg",
+    "sass-core-expanded": "sass --no-source-map --error-css --style=expanded assets-src/styles/core.scss dist/styles/core.css",
+    "postsass-core-expanded": "postcss --no-map dist/styles/core.css --use=autoprefixer --output=dist/styles/core.css",
+    "sass-advanced-expanded": "sass --no-source-map --error-css --style=expanded assets-src/styles/advanced.scss dist/styles/advanced.css",
+    "postsass-advanced-expanded": "postcss --no-map dist/styles/advanced.css --use=autoprefixer --output=dist/styles/advanced.css",
+    "sass-print-expanded": "sass --no-source-map --error-css --style=expanded assets-src/styles/print.scss dist/styles/print.css",
+    "postsass-print-expanded": "postcss --no-map dist/styles/print.css --use=autoprefixer --output=dist/styles/print.css",
+    "sass-core-compressed": "sass --no-source-map --style=compressed assets-src/styles/core.scss dist/styles/core.min.css",
+    "postsass-core-compressed": "postcss --no-map dist/styles/core.min.css --use=autoprefixer --output=dist/styles/core.min.css",
+    "sass-advanced-compressed": "sass --no-source-map --style=compressed assets-src/styles/advanced.scss dist/styles/advanced.min.css",
+    "postsass-advanced-compressed": "postcss --no-map dist/styles/advanced.min.css --use=autoprefixer --output=dist/styles/advanced.min.css",
+    "sass-print-compressed": "sass --no-source-map --style=compressed assets-src/styles/print.scss dist/styles/print.min.css",
+    "postsass-print-compressed": "postcss --no-map dist/styles/print.min.css --use=autoprefixer --output=dist/styles/print.min.css",
+    "styles": "npm-run-all --parallel sass-core-expanded sass-core-compressed sass-advanced-expanded sass-advanced-compressed sass-print-expanded sass-print-compressed",
+    "js": "webpack --config webpack.config.js",
+    "prebuild": "shx rm -rf dist && shx mkdir -p dist/fonts && shx mkdir dist/images && shx mkdir dist/js && shx mkdir dist/js/libraries && shx mkdir dist/styles && shx mkdir dist/svg",
+    "build": "npm-run-all --parallel fonts images svgs js styles",
+    "watch:fonts": "chokidar assets-src/fonts -c \"npm run fonts\"",
+    "watch:images": "chokidar assets-src/images -c \"npm run images\"",
+    "watch:svgs": "chokidar assets-src/svg -c \"npm run svgs\"",
+    "watch:js": "chokidar assets-src/js -c \"npm run js\"",
+    "watch:styles": "chokidar assets-src/styles -c \"npm run styles\"",
+    "watch": "npm-run-all --parallel watch:*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "browserslist": "^4.21.5",
+    "chokidar-cli": "^3.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.60.0",
+    "shx": "^0.3.4",
+    "svgo": "^3.0.2",
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "accessible-autocomplete": "^2.0.4",
+    "fontfaceobserver": "^2.3.0",
+    "tabbyjs": "^12.0.3"
   }
 }
