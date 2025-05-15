@@ -3389,6 +3389,11 @@ a.phone img {
   display: none;
 }
 
+.event.event-body {
+  margin-inline: auto;
+  max-inline-size: 93.75rem;
+}
+
 .events-inner {
   margin-inline: auto;
   max-inline-size: 93.75rem;

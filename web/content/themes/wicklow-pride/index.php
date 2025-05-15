@@ -1,57 +1,51 @@
 <?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Wicklow_Pride
- */
 
 get_header();
+   
+$page_id = get_page_by_path( 'blog' )->ID; 
+get_template_part('template-parts/component/hero', null, array(
+	'hero' => get_field('hero', $page_id)
+));
+
 ?>
 
-	<main id="primary" class="site-main">
-
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
-
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
+	<main class="main">
+			<nav class="breadcrumbs" aria-role="Breadcrumb">
+				<div class="breadcrumbs-inner">
+					<div class="l-cluster">
+						<ul class="clean-list" role="list">
+							<li><a href="/">Home</a></li>
+							<li aria-current="page"><a href="<?php get_the_permalink($page_id); ?>">Blog</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<section class="blog-posts">
+				<div class="blog-posts-inner">
+					<?php if(get_field('page_intro', $page_id)) : ?>
+						<div class="blog-posts__intro">
+							<?php echo get_field('page_intro', $page_id); ?>
+						</div>
+					<?php endif; ?>
+					<?php if(have_posts()) : ?>
+						<div class="blog-posts__listing">
+							<?php while(have_posts()) : the_post(); ?>
+								<article class="blog-post__card">
+									<div class="blog-post__card__image">
+										<?php echo the_post_thumbnail(); ?>
+									</div>
+									<div class="blog-post__card__body">
+										<h3><?php the_title(); ?></h3>
+										<?php echo get_field('teaser_description') ? get_field('teaser_description') : null; ?>
+										<a href="<?php echo get_the_permalink(); ?>" class="button button--ghost button--ghost--border">Check it out</a>
+									</div>
+								</article>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</section>
+	</main>
 
 <?php
-get_sidebar();
 get_footer();

@@ -14,6 +14,11 @@
 	}
 }
 
+.event.event-body {
+	margin-inline: auto;
+	max-inline-size: rem($max-inline-size);
+}
+
 .events-inner {
 	margin-inline: auto;
 	max-inline-size: rem($max-inline-size);

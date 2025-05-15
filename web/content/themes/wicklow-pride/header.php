@@ -51,7 +51,7 @@
 		</div>
 	</header>
 	<?php 
-		if(!is_archive()) {
+		if(!is_archive() && !is_home()) {
 			get_template_part( 'template-parts/component/hero' );
 		} 
 	?>
