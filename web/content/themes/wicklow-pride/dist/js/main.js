@@ -411,9 +411,9 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
   var defaults = {
     breakpoint: 1024,
     cloneTopLevelLink: true,
-    mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="open" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>' + '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' + '</svg>',
-    submenuDirection: 'vertical',
-    submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="control-vertical" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' + '<path class="control-horizontal" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>' + '</svg>',
+    mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="open" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>' + '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' + "</svg>",
+    submenuDirection: "vertical",
+    submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="control-vertical" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' + '<path class="control-horizontal" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>' + "</svg>",
     submenuIntro: false
   };
 
@@ -422,37 +422,37 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
   this.init = function () {
     mobileToggleSetup();
     menuSetup();
-    document.addEventListener('click', clickHandler);
-    document.addEventListener('keyup', closeOnEscKey);
+    document.addEventListener("click", clickHandler);
+    document.addEventListener("keyup", closeOnEscKey);
   };
   function closeSubmenus() {
     var subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
     subNavTriggers.forEach(function (trigger) {
-      trigger.setAttribute('aria-expanded', 'false');
+      trigger.setAttribute("aria-expanded", "false");
     });
   }
   function clickHandler(event) {
     if (event.target.matches('[data-trigger="mobile-nav"]')) {
       if (event.target.matches('[aria-expanded="true"]')) {
         closeSubmenus();
-        event.target.setAttribute('aria-expanded', 'false');
+        event.target.setAttribute("aria-expanded", "false");
       } else {
-        event.target.setAttribute('aria-expanded', 'true');
+        event.target.setAttribute("aria-expanded", "true");
       }
     } else if (event.target.matches('[data-trigger="sub-nav"]')) {
       var button = event.target;
       var submenu = button.nextElementSibling;
       if (event.target.matches('[aria-expanded="true"]')) {
-        event.target.setAttribute('aria-expanded', 'false');
+        event.target.setAttribute("aria-expanded", "false");
       } else {
         closeSubmenus();
-        event.target.setAttribute('aria-expanded', 'true');
+        event.target.setAttribute("aria-expanded", "true");
         if (settings.submenuIntro === false) {
           preventOffScreenSubmenu(submenu);
         }
       }
     } else if (event.target.matches('[data-button="mobile-back"]')) {
-      event.target.closest('li').querySelector('[data-trigger="sub-nav"]').setAttribute('aria-expanded', 'false');
+      event.target.closest("li").querySelector('[data-trigger="sub-nav"]').setAttribute("aria-expanded", "false");
     } else {
       closeSubmenus();
     }
@@ -462,17 +462,17 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
       return;
     }
     var key = event.key || event.keyCode;
-    if (key === 'Escape' || key === 'Esc' || key === 27) {
+    if (key === "Escape" || key === "Esc" || key === 27) {
       var subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
       var result = true;
       for (var i = 0; i < subNavTriggers.length; i++) {
-        if (subNavTriggers[i].getAttribute('aria-expanded') === 'true') {
+        if (subNavTriggers[i].getAttribute("aria-expanded") === "true") {
           result = false;
           break;
         }
       }
-      if (result && mobileToggle.style.display === 'inline-flex') {
-        mobileToggle.setAttribute('aria-expanded', 'false');
+      if (result && mobileToggle.style.display === "inline-flex") {
+        mobileToggle.setAttribute("aria-expanded", "false");
       } else {
         closeSubmenus();
       }
@@ -485,38 +485,38 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     var menuRightEdge = menuLeftEdge + submenu.offsetWidth;
     if (menuRightEdge + 32 > screenWidth) {
       // adding 32 so it's not too close
-      submenu.classList.add('js-sub-menu-right');
+      submenu.classList.add("js-sub-menu-right");
     }
   }
   function mobileToggleSetup() {
     mobileToggle.innerHTML += settings.mobileIcon;
-    mobileToggle.setAttribute('aria-expanded', 'false');
-    mobileToggle.style.display = 'inline-flex';
+    mobileToggle.setAttribute("aria-expanded", "false");
+    mobileToggle.style.display = "inline-flex";
     var mqValue = settings.breakpoint / 16;
-    var mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
+    var mq = window.matchMedia("(min-width: " + mqValue + "em)");
     mq.addListener(WidthChange);
     WidthChange(mq);
 
     // Media query change
     function WidthChange(mq) {
       if (!mq.matches) {
-        mobileToggle.setAttribute('aria-expanded', 'false');
-        mobileToggle.style.display = 'inline-flex';
+        mobileToggle.setAttribute("aria-expanded", "false");
+        mobileToggle.style.display = "inline-flex";
       } else {
-        mobileToggle.setAttribute('aria-expanded', 'true');
-        mobileToggle.style.display = 'none';
+        mobileToggle.setAttribute("aria-expanded", "true");
+        mobileToggle.style.display = "none";
       }
     }
   }
   function menuSetup() {
-    container.setAttribute('id', 'js-click-nav-' + settings.submenuDirection);
+    container.setAttribute("id", "js-click-nav-" + settings.submenuDirection);
     if (settings.submenuIntro === true) {
-      container.classList.add('js-nav-with-intro');
+      container.classList.add("js-nav-with-intro");
     }
-    var subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
+    var subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"], ul.sub-menu'));
     subMenuWrappers.forEach(function (wrapper) {
       var menuItem = wrapper.parentElement;
-      if ('undefined' !== typeof wrapper) {
+      if ("undefined" !== typeof wrapper) {
         var button = convertLinkToButton(menuItem);
         setUpAria(wrapper, button);
       }
@@ -527,21 +527,21 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
    * Why do this? See https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/
    */
   function convertLinkToButton(menuItem) {
-    var link = menuItem.getElementsByTagName('a')[0];
+    var link = menuItem.getElementsByTagName("a")[0];
     var linkHTML = link.innerHTML;
     var linkAtts = link.attributes;
     var icon = settings.submenuIcon;
-    var button = document.createElement('button');
-    button.setAttribute('data-trigger', 'sub-nav');
-    var li = document.createElement('li');
-    var subMenu = link.nextElementSibling.querySelector('ul');
+    var button = document.createElement("button");
+    button.setAttribute("data-trigger", "sub-nav");
+    var li = document.createElement("li");
+    var subMenu = link.nextElementSibling.querySelector("ul");
     if (null !== link) {
       // copy button attributes and content from link
       button.innerHTML = linkHTML.trim();
       button.innerHTML = button.innerHTML + icon;
       for (var i = 0, length = linkAtts.length; i < length; i++) {
         var attr = linkAtts[i];
-        if ('href' !== attr.name) {
+        if ("href" !== attr.name) {
           button.setAttribute(attr.name, attr.value);
         }
       }
@@ -553,12 +553,12 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
       }
       menuItem.replaceChild(button, link);
     }
-    if (settings.submenuDirection === 'horizontal') {
+    if (settings.submenuDirection === "horizontal") {
       // Insert a "back" button
-      var backButton = document.createElement('button');
-      backButton.setAttribute('data-button', 'mobile-back');
-      backButton.setAttribute('class', 'button button--ghost');
-      backButton.innerHTML = icon + ' Back';
+      var backButton = document.createElement("button");
+      backButton.setAttribute("data-button", "mobile-back");
+      backButton.setAttribute("class", "button button--ghost");
+      backButton.innerHTML = icon + " Back";
       if (settings.submenuIntro === true) {
         subMenu.parentNode.insertBefore(backButton, subMenu.parentNode.children[0]);
       } else subMenu.parentNode.insertBefore(backButton, subMenu);
@@ -566,50 +566,21 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     return button;
   }
   function setUpAria(submenu, button) {
-    var submenuId = submenu.getAttribute('id');
+    var submenuId = submenu.getAttribute("id");
     var id;
     if (null === submenuId) {
-      id = 'js-' + button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu';
+      id = "js-" + button.textContent.trim().replace(/\s+/g, "-").toLowerCase() + "-submenu";
     } else {
-      id = submenuId + '-submenu';
+      id = submenuId + "-submenu";
     }
 
     // set button ARIA
-    button.setAttribute('aria-controls', id);
-    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute("aria-controls", id);
+    button.setAttribute("aria-expanded", "false");
 
     // set submenu ARIA
-    submenu.setAttribute('id', id);
+    submenu.setAttribute("id", id);
   }
-};
-
-
-/***/ }),
-/* 10 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   menuToggle: function() { return /* binding */ menuToggle; }
-/* harmony export */ });
-var menuToggle = function menuToggle() {
-  // Toggle mobile navigation
-  var menuToggle = document.querySelector(".menu-toggle");
-  var menuItems = document.querySelectorAll(".mobile-navigation ul li");
-  var body = document.querySelector("body");
-  menuToggle.addEventListener("click", function (e) {
-    e.target.classList.toggle("active");
-    document.querySelector(".mobile-navigation").classList.toggle("active");
-    body.classList.toggle("no-scroll");
-  });
-  menuItems.forEach(function (item) {
-    item.addEventListener("click", function () {
-      menuToggle.classList.remove("active");
-      document.querySelector(".mobile-navigation").classList.remove("active");
-      body.classList.remove("no-scroll");
-    });
-  });
 };
 
 
@@ -694,7 +665,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var _main_nav_single_level__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
 /* harmony import */ var _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9);
-/* harmony import */ var _main_menu_toggle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(10);
 
 
 
@@ -702,14 +672,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import { menuToggle } from "./main/menu-toggle";
 
 function domLoadedActions() {
-  console.log("Loaded DOM");
   (0,_main_cards__WEBPACK_IMPORTED_MODULE_1__.cardEnhancement)();
   (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_2__.collapsibles)();
   (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
   (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
-  (0,_main_menu_toggle__WEBPACK_IMPORTED_MODULE_7__.menuToggle)();
+  // menuToggle();
 
   /* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
   var navExampleSingle = document.querySelector('ul[data-component="nav-single"]');

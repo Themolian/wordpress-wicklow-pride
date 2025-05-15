@@ -22,20 +22,26 @@
 					<div class="footer-socials">
 						<?php while(have_rows('social_media', 'options')) : the_row(); ?>
 							<a href="<?php get_sub_field('social_media_url') ?>" data-social-type="<?php echo get_sub_field('social_media_title'); ?>">
-								<img src="/dist/svg/<?php echo strtolower(get_sub_field('social_media_title')); ?>" alt="Follow us on <?php echo get_sub_field('social_media_title'); ?>">
+								<img src="<?php echo get_theme_file_uri(); ?>/dist/svg/<?php echo strtolower(get_sub_field('social_media_title')); ?>.svg" alt="Follow us on <?php echo get_sub_field('social_media_title'); ?>">
 							</a>
 						<?php endwhile; ?>
 					</div>
 				<?php endif; ?>
 				<?php if(get_field('email_address', 'options')) : ?>
-					<a href="mailto:<?php echo get_field('email_address', 'options'); ?>"><?php echo get_field('email_address', 'options'); ?></a>
+					<a class="mail" href="mailto:<?php echo get_field('email_address', 'options'); ?>">
+						<img src="<?php echo get_theme_file_uri(); ?>/dist/svg/email.svg" alt="">
+						<?php echo get_field('email_address', 'options'); ?>
+					</a>
 				<?php endif; ?>
 				<?php if(get_field('phone_number', 'options')) : ?>
-					<a href="mailto:<?php echo get_field('phone_number', 'options'); ?>"><?php echo get_field('phone_number', 'options'); ?></a>
+					<a class="phone" href="mailto:<?php echo get_field('phone_number', 'options'); ?>">
+						<img src="<?php echo get_theme_file_uri(); ?>/dist/svg/phone.svg" alt="">
+						<?php echo get_field('phone_number', 'options'); ?>
+					</a>
 				<?php endif; ?>
 			</div>
 			<div class="footer-col footer-charity">
-				<?php get_field('charity_section', 'options'); ?>
+				<?php echo get_field('charity_section', 'options'); ?>
 			</div>
 			<div class="footer-col footer-attr">
 				<p>&copy; Wicklow Pride <?php echo date('Y'); ?></p>

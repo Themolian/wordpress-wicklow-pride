@@ -27,9 +27,11 @@
 	<header class="header">
 		<div class="header-inner">
 			<div class="header-logo">
-				<img src="<?php echo get_field('organisation_logo', 'options')['url'] ?>" alt="Wicklow Pride">
+				<a href="/">
+					<img src="<?php echo get_field('organisation_logo', 'options')['url'] ?>" alt="Wicklow Pride">
+				</a>
 			</div>
-			<nav class="main-navigation" data-component="nav-double" aria-label="Main Navigation">
+			<nav class="main-navigation global-nav" data-component="nav-double" aria-label="Main Navigation" id="js-click-nav-vertical">
 				<?php
 					wp_nav_menu(
 						array(
@@ -41,13 +43,15 @@
 					);
 				?>
 			</nav>
-			<div class="menu-toggle">
+			<!-- <div class="menu-toggle">
 				<span class="line-1"></span>
 				<span class="line-2">Menu Toggle</span>
 				<span class="line-3"></span>
-			</div>
+			</div> -->
 		</div>
 	</header>
-	<?php if(get_field('hero')) :  ?>
-		<?php get_template_part( 'template-parts/component/hero' ) ?>
-	<?php endif; ?>
+	<?php 
+		if(!is_archive()) {
+			get_template_part( 'template-parts/component/hero' );
+		} 
+	?>

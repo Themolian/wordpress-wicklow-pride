@@ -1984,7 +1984,6 @@ min-inline-size, so that either of these properties is applied instead.
 }
 .main-navigation ul > li a {
   font-size: 1.125rem;
-  width: 6.25rem;
 }
 .main-navigation ul li {
   margin-top: 0;
@@ -1994,11 +1993,17 @@ min-inline-size, so that either of these properties is applied instead.
      */
 }
 .main-navigation ul li a {
+  border: 0;
   color: black;
   display: block;
   font-weight: 700;
+  padding: 0 1.25rem;
   text-align: center;
   text-decoration: none;
+}
+.main-navigation ul li a:hover, .main-navigation ul li a:focus {
+  background-color: transparent;
+  color: black;
 }
 .main-navigation ul li a:visited {
   color: black;
@@ -2041,7 +2046,7 @@ min-inline-size, so that either of these properties is applied instead.
 .main-navigation ul li:nth-child(7):before, .main-navigation ul li:nth-child(7):after {
   background-color: #ff64ad;
 }
-.main-navigation ul li:hover ul.children, .main-navigation ul li:focus-within ul.children, .main-navigation ul li.active ul.children {
+.main-navigation ul li:hover ul.sub-menu, .main-navigation ul li:focus-within ul.sub-menu, .main-navigation ul li.active ul.sub-menu {
   -webkit-transform: translateX(-50%) translateY(4px);
           transform: translateX(-50%) translateY(4px);
   opacity: 1;
@@ -2056,7 +2061,8 @@ min-inline-size, so that either of these properties is applied instead.
   }
 }
 
-ul.children {
+ul.sub-menu {
+  box-shadow: none;
   display: block;
   min-width: 9.375rem;
   position: absolute;
@@ -2071,7 +2077,7 @@ ul.children {
   transition: 0.2s all;
   pointer-events: none;
 }
-ul.children li {
+ul.sub-menu li {
   min-width: 9.375rem;
   width: 100%;
   background-color: white;
@@ -2079,15 +2085,15 @@ ul.children li {
   overflow: hidden;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
-ul.children li:first-child {
+ul.sub-menu li:first-child {
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
 }
-ul.children li:last-child {
+ul.sub-menu li:last-child {
   border-bottom-left-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
 }
-ul.children li a {
+ul.sub-menu li a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2096,13 +2102,13 @@ ul.children li a {
   width: 100%;
   transition: 0.2s all;
 }
-ul.children li a:hover {
+ul.sub-menu li a:hover, ul.sub-menu li a:focus {
   background-color: #e6e6e6;
 }
-ul.children li::before {
+ul.sub-menu li::before {
   display: none;
 }
-ul.children li::after {
+ul.sub-menu li::after {
   display: block;
   width: 100%;
   position: static;
@@ -2139,7 +2145,8 @@ ul.children li::after {
   margin: 0;
 }
 
-[data-nav=submenu] {
+[data-nav=submenu],
+ul.sub-menu {
   padding-left: 1.25rem;
 }
 
@@ -2314,7 +2321,8 @@ a.nav-link:active {
   content: "" !important;
 }
 
-.breadcrumbs a {
+.breadcrumbs li a {
+  border: 0;
   color: #252525;
   display: block;
   -webkit-padding-after: 0.3125rem;
@@ -2322,7 +2330,8 @@ a.nav-link:active {
   -webkit-padding-before: 0.3125rem;
           padding-block-start: 0.3125rem;
 }
-.breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
+.breadcrumbs li a:visited, .breadcrumbs li a:hover, .breadcrumbs li a:active {
+  background-color: transparent;
   color: #252525;
 }
 
@@ -3380,6 +3389,11 @@ a.phone img {
   display: none;
 }
 
+.events-inner {
+  margin-inline: auto;
+  max-inline-size: 93.75rem;
+}
+
 div.event-details {
   padding-bottom: 0;
 }
@@ -3409,6 +3423,7 @@ div.event-details p.time:before {
   border-radius: 0.75rem;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
   margin-bottom: 1.875rem;
+  overflow: hidden;
 }
 @media screen and (min-width: 37.5em) {
   .events__featured-event {
@@ -3441,6 +3456,9 @@ div.event-details p.time:before {
   }
 }
 
+.events-listing {
+  padding: 3.125rem 0;
+}
 @media screen and (min-width: 37.5em) {
   .events-listing {
     display: grid;
@@ -3455,6 +3473,7 @@ div.event-details p.time:before {
   border-radius: 0.75rem;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  max-inline-size: 27.8125rem;
 }
 .event-card h3 {
   margin-top: 0;

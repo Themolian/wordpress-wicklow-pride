@@ -21,18 +21,24 @@
 		> li {
 			a {
 				font-size: rem(18);
-				width: rem(100);
 			}
 		}
 		li {
 			margin-top: 0;
 			position: relative;
 			a {
+				border: 0;
 				color: black;
 				display: block;
 				font-weight: 700;
+				padding: 0 rem(20);
 				text-align: center;
 				text-decoration: none;
+				&:hover,
+				&:focus {
+					background-color: transparent;
+					color: black;
+				}
 				&:visited {
 					color: black;
 				}
@@ -105,7 +111,7 @@
 			&:hover,
 			&:focus-within,
 			&.active {
-				ul.children {
+				ul.sub-menu {
 					transform: translateX(-50%) translateY(4px);
 					opacity: 1;
 					pointer-events: all;
@@ -121,7 +127,8 @@
 	}
 }
 
-ul.children {
+ul.sub-menu {
+	box-shadow: none;
 	display: block;
 	min-width: rem(150);
 	position: absolute;
@@ -157,7 +164,8 @@ ul.children {
 			min-width: rem(150);
 			width: 100%;
 			transition: 0.2s all;
-			&:hover {
+			&:hover,
+			&:focus {
 				background-color: darken(white, 10%);
 			}
 		}

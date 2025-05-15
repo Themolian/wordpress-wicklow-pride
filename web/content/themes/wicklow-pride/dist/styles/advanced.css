@@ -252,7 +252,8 @@ br {
 .js .nav [data-trigger=sub-nav] > * {
   pointer-events: none;
 }
-.js .nav [data-nav=submenu] {
+.js .nav [data-nav=submenu],
+.js .nav ul.sub-menu {
   background-color: #fcfcfc;
   min-height: 100%;
   padding-left: 0;
@@ -262,13 +263,15 @@ br {
   z-index: 5;
 }
 @media screen and (min-width: 48em) {
-  .js .nav [data-nav=submenu] {
+  .js .nav [data-nav=submenu],
+  .js .nav ul.sub-menu {
     min-height: auto;
     top: auto;
     width: auto;
   }
 }
-.js .nav [data-nav=submenu].js-sub-menu-right {
+.js .nav [data-nav=submenu].js-sub-menu-right,
+.js .nav ul.sub-menu.js-sub-menu-right {
   left: auto;
   right: 0;
 }
@@ -296,11 +299,6 @@ br {
 #js-click-nav-vertical [data-trigger=sub-nav][aria-expanded=true] svg {
   -webkit-transform: scaleY(-1);
           transform: scaleY(-1);
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-vertical [data-nav=submenu] {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-  }
 }
 
 /* Styles for double-navigation with back button in sub menus */
@@ -340,7 +338,8 @@ br {
   }
 }
 @media screen and (min-width: 48em) {
-  #js-click-nav-horizontal [data-nav=submenu] {
+  #js-click-nav-horizontal [data-nav=submenu],
+  #js-click-nav-horizontal ul.sub-menu {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   }
 }
@@ -363,12 +362,14 @@ br {
     position: static !important;
   }
 }
-.js-nav-with-intro [data-nav=submenu] {
+.js-nav-with-intro [data-nav=submenu],
+.js-nav-with-intro ul.sub-menu {
   border-bottom: solid 3px;
   padding: 1.25rem 0;
 }
 @media screen and (min-width: 48em) {
-  .js-nav-with-intro [data-nav=submenu] {
+  .js-nav-with-intro [data-nav=submenu],
+  .js-nav-with-intro ul.sub-menu {
     left: 50%;
     min-height: auto;
     padding: 3.125rem 1.25rem;
@@ -379,7 +380,8 @@ br {
   }
 }
 @media screen and (min-width: 48em) {
-  .js-nav-with-intro [data-nav=submenu] .l-center {
+  .js-nav-with-intro [data-nav=submenu] .l-center,
+  .js-nav-with-intro ul.sub-menu .l-center {
     display: flex;
     justify-content: space-between;
   }
@@ -390,7 +392,8 @@ br {
   }
 }
 @media screen and (min-width: 48em) {
-  .js-nav-with-intro [data-nav=submenu] .nav__intro {
+  .js-nav-with-intro [data-nav=submenu] .nav__intro,
+  .js-nav-with-intro ul.sub-menu .nav__intro {
     width: 40%;
   }
 }
@@ -403,7 +406,8 @@ br {
   }
 }
 @media screen and (min-width: 48em) {
-  .js-nav-with-intro [data-nav=submenu] ul {
+  .js-nav-with-intro [data-nav=submenu] ul,
+  .js-nav-with-intro ul.sub-menu {
     -webkit-column-gap: 2.5rem;
             column-gap: 2.5rem;
     -webkit-columns: 2;

@@ -143,7 +143,7 @@ function wicklow_pride_scripts() {
 	wp_enqueue_style( 'print-stylesheet', get_template_directory_uri() . '/dist/styles/print.min.css', array(), _S_VERSION, 'print' );
 	wp_style_add_data( 'wicklow-pride-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'wicklow-pride-navigation', get_template_directory_uri() . '/dist/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'wicklow-pride-js', get_template_directory_uri() . '/dist/js/main.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
