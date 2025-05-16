@@ -18,8 +18,7 @@
 /web/xmlrpc.php
 
 /wordpress_config.yml
-# Configuration
-wp-config.php
+/wordpress-ddev.sh
 
 # Example themes
 /web/content/themes/twenty*/
@@ -47,3 +46,5 @@ wp-config.php
 # Note: If you wish to whitelist themes,
 # uncomment the next line
 #/wp-content/themes
+
+/vendor/
