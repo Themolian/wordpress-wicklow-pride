@@ -18,7 +18,6 @@
 /web/xmlrpc.php
 
 /wordpress_config.yml
-/wordpress-ddev.sh
 
 # Example themes
 /web/content/themes/twenty*/
