@@ -279,7 +279,6 @@ br {
 /* Styles for simple double-level navigation */
 #js-click-nav-vertical > ul {
   left: 0;
-  position: absolute;
   width: 100%;
   z-index: 5;
 }
@@ -335,12 +334,6 @@ br {
   #js-click-nav-horizontal [data-trigger=sub-nav][aria-expanded=true] svg {
     -webkit-transform: scaleY(-1);
             transform: scaleY(-1);
-  }
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-horizontal [data-nav=submenu],
-  #js-click-nav-horizontal ul.sub-menu {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   }
 }
 @media screen and (min-width: 48em) {

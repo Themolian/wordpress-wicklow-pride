@@ -4,7 +4,7 @@ import { cardEnhancement } from "./main/cards";
 import { collapsibles } from "./main/collapsibles";
 import { disclosureWidget } from "./main/disclosure-widget";
 import { formErrorSummary } from "./main/form-error-summary";
-import { navSingleLevel } from "./main/nav-single-level";
+// import { navSingleLevel } from "./main/nav-single-level";
 import { navDoubleLevel } from "./main/nav-double-level";
 // import { menuToggle } from "./main/menu-toggle";
 
@@ -22,19 +22,19 @@ function domLoadedActions() {
 
 	if (exists(navExampleSingle)) {
 		let siteNav = new navSingleLevel(navExampleSingle, {
-			breakpoint: 768,
+			breakpoint: 600,
 		});
 		siteNav.init();
 	}
 
 	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
 	const navExampleDouble = document.querySelector(
-		'ul[data-component="nav-double"]'
+		'[data-component="nav-double"] ul'
 	);
 
 	if (exists(navExampleDouble)) {
 		let siteNav = new navDoubleLevel(navExampleDouble, {
-			breakpoint: 768,
+			breakpoint: 600,
 			submenuDirection: "horizontal",
 		});
 		siteNav.init();
@@ -47,7 +47,7 @@ function domLoadedActions() {
 
 	if (exists(navDoubleIntro)) {
 		let siteNav = new navDoubleLevel(navDoubleIntro, {
-			breakpoint: 768,
+			breakpoint: 600,
 			cloneTopLevelLink: false,
 			submenuDirection: "horizontal",
 			submenuIntro: true,

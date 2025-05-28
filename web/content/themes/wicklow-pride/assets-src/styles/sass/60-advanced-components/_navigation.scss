@@ -86,7 +86,6 @@
 #js-click-nav-vertical {
 	> ul {
 		left: 0;
-		position: absolute;
 		width: 100%;
 		z-index: 5;
 
@@ -159,7 +158,7 @@
 	[data-nav="submenu"],
 	ul.sub-menu {
 		@include mq($bp-tab-portrait) {
-			box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
+			// box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
 		}
 	}
 

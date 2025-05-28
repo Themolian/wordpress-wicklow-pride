@@ -254,134 +254,10 @@ var formErrorSummary = function formErrorSummary() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   navSingleLevel: function() { return /* binding */ navSingleLevel; }
-/* harmony export */ });
-/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
-/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/**
- * Object for creating single-level navigation menus
- * Manages button for toggling navigation on mobile
- * Uses event delegation to handle events for improved performance
- *
- * @param {Element} menu - the top level navigation <ul>
- * @param {Object} options - configuration options for the navigation
- * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em.
- * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
- */
-
-var navSingleLevel = function navSingleLevel(menu, options) {
-  var container = menu.parentElement;
-  var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
-
-  // Default settings
-  var defaults = {
-    breakpoint: 1024,
-    mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="open" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>' + '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' + '</svg>'
-  };
-
-  // Merge user options into defaults
-  var settings = Object.assign({}, defaults, options);
-  this.init = function () {
-    mobileToggleSetup();
-    document.addEventListener('click', clickHandler);
-    document.addEventListener('keyup', closeOnEscKey);
-  };
-  function clickHandler(event) {
-    if (event.target.matches('[data-trigger="mobile-nav"]')) {
-      if (event.target.matches('[aria-expanded="true"]')) {
-        event.target.setAttribute('aria-expanded', 'false');
-      } else {
-        event.target.setAttribute('aria-expanded', 'true');
-      }
-    }
-  }
-  function closeOnEscKey(event) {
-    if (event.defaultPrevented) {
-      return;
-    }
-    var key = event.key || event.keyCode;
-    if (key === 'Escape' || key === 'Esc' || key === 27) {
-      if (mobileToggle.style.display === 'inline-flex') {
-        mobileToggle.setAttribute('aria-expanded', 'false');
-      }
-    }
-  }
-  function mobileToggleSetup() {
-    mobileToggle.innerHTML += settings.mobileIcon;
-    mobileToggle.setAttribute('aria-expanded', 'false');
-    mobileToggle.style.display = 'inline-flex';
-    var mqValue = settings.breakpoint / 16;
-    var mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
-    mq.addListener(WidthChange);
-    WidthChange(mq);
-
-    // Media query change
-    function WidthChange(mq) {
-      if (!mq.matches) {
-        mobileToggle.setAttribute('aria-expanded', 'false');
-        mobileToggle.style.display = 'inline-flex';
-      } else {
-        mobileToggle.setAttribute('aria-expanded', 'true');
-        mobileToggle.style.display = 'none';
-      }
-    }
-  }
-};
-
-
-/***/ }),
-/* 8 */
-/***/ (function() {
-
-/**
- * Object.assign() polyfill for IE
- * Needed for navigation
- * @see https://vanillajstoolkit.com/polyfills/objectassign/
- */
-if (typeof Object.assign != 'function') {
-  // Must be writable: true, enumerable: false, configurable: true
-  Object.defineProperty(Object, "assign", {
-    value: function assign(target, varArgs) {
-      // .length of function is 2
-      'use strict';
-
-      if (target == null) {
-        // TypeError if undefined or null
-        throw new TypeError('Cannot convert undefined or null to object');
-      }
-      var to = Object(target);
-      for (var index = 1; index < arguments.length; index++) {
-        var nextSource = arguments[index];
-        if (nextSource != null) {
-          // Skip over if undefined or null
-          for (var nextKey in nextSource) {
-            // Avoid bugs when hasOwnProperty is shadowed
-            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-              to[nextKey] = nextSource[nextKey];
-            }
-          }
-        }
-      }
-      return to;
-    },
-    writable: true,
-    configurable: true
-  });
-}
-
-/***/ }),
-/* 9 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   navDoubleLevel: function() { return /* binding */ navDoubleLevel; }
 /* harmony export */ });
-/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
-/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -393,10 +269,11 @@ __webpack_require__.r(__webpack_exports__);
  * Uses event delegation to handle events for improved performance, and data attributes for targeting elements
  * Also manages button for toggling navigation on mobile
  *
- * @param {Element} menu - the top level navigation <ul>
+ * @param {Element} menu - the top level <ul> navigation
  * @param {Object} options - configuration options for the navigation
  * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em (assumes 16px browser default).
- * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link to be replaced with a button and add it to the sub menu.
+ * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link that will be replaced with a button, and add it to the sub menu.
+ * @param {boolean} [options.replaceTopLevelLinks=true] - whether to swap the top level link for a button, or add a button after the link
  * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
  * @param {string} [options.submenuIcon] - SVG icon used for sub menus and back button.
  * @param {string} [options.submenuDirection=vertical] - direction in which sub menus operate on mobile (vertical, or horizontal with a 'back' button).
@@ -404,16 +281,16 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 var navDoubleLevel = function navDoubleLevel(menu, options) {
-  var container = menu.parentElement;
   var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
 
   // Default settings
   var defaults = {
     breakpoint: 1024,
     cloneTopLevelLink: true,
+    replaceTopLevelLinks: true,
     mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="open" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>' + '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' + "</svg>",
+    submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' + "</svg>",
     submenuDirection: "vertical",
-    submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="control-vertical" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' + '<path class="control-horizontal" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>' + "</svg>",
     submenuIntro: false
   };
 
@@ -503,24 +380,52 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
         mobileToggle.setAttribute("aria-expanded", "false");
         mobileToggle.style.display = "inline-flex";
       } else {
-        mobileToggle.setAttribute("aria-expanded", "true");
+        // mobileToggle.setAttribute("aria-expanded", "true");
         mobileToggle.style.display = "none";
       }
     }
   }
   function menuSetup() {
-    container.setAttribute("id", "js-click-nav-" + settings.submenuDirection);
     if (settings.submenuIntro === true) {
-      container.classList.add("js-nav-with-intro");
+      menu.setAttribute("id", "js-click-nav-intro");
+    } else if (settings.replaceTopLevelLinks === false) {
+      menu.setAttribute("id", "js-click-nav-both");
+    } else {
+      menu.setAttribute("id", "js-click-nav-" + settings.submenuDirection);
     }
-    var subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"], ul.sub-menu'));
+    var subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
     subMenuWrappers.forEach(function (wrapper) {
       var menuItem = wrapper.parentElement;
       if ("undefined" !== typeof wrapper) {
-        var button = convertLinkToButton(menuItem);
-        setUpAria(wrapper, button);
+        if (settings.replaceTopLevelLinks === true) {
+          var button = convertLinkToButton(menuItem);
+          setUpAria(wrapper, button);
+        } else {
+          var _button = addButtonAfterLink(menuItem);
+          setUpAria(wrapper, _button);
+        }
       }
     });
+  }
+  function addButtonAfterLink(menuItem) {
+    var link = menuItem.getElementsByTagName("a")[0];
+    var icon = settings.submenuIcon;
+    var button = document.createElement("button");
+    var subMenu = link.nextElementSibling.querySelector("ul");
+    button.setAttribute("data-trigger", "sub-nav");
+    button.innerHTML = icon + '<span class="visuallyhidden">' + link.textContent + " menu</span>";
+    link.after(button);
+    if (settings.submenuDirection === "horizontal") {
+      // Insert a "back" button
+      var backButton = document.createElement("button");
+      backButton.setAttribute("data-button", "mobile-back");
+      backButton.setAttribute("class", "button button--ghost");
+      backButton.innerHTML = icon + " Back";
+      if (settings.submenuIntro === true) {
+        subMenu.parentNode.insertBefore(backButton, subMenu.parentNode.children[0]);
+      } else subMenu.parentNode.insertBefore(backButton, subMenu);
+    }
+    return button;
   }
 
   /**
@@ -583,6 +488,46 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
   }
 };
 
+
+/***/ }),
+/* 8 */
+/***/ (function() {
+
+/**
+ * Object.assign() polyfill for IE
+ * Needed for navigation
+ * @see https://vanillajstoolkit.com/polyfills/objectassign/
+ */
+if (typeof Object.assign != 'function') {
+  // Must be writable: true, enumerable: false, configurable: true
+  Object.defineProperty(Object, "assign", {
+    value: function assign(target, varArgs) {
+      // .length of function is 2
+      'use strict';
+
+      if (target == null) {
+        // TypeError if undefined or null
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
+      var to = Object(target);
+      for (var index = 1; index < arguments.length; index++) {
+        var nextSource = arguments[index];
+        if (nextSource != null) {
+          // Skip over if undefined or null
+          for (var nextKey in nextSource) {
+            // Avoid bugs when hasOwnProperty is shadowed
+            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+      return to;
+    },
+    writable: true,
+    configurable: true
+  });
+}
 
 /***/ })
 /******/ 	]);
@@ -663,14 +608,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 /* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
-/* harmony import */ var _main_nav_single_level__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
-/* harmony import */ var _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9);
+/* harmony import */ var _main_nav_double_level__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
 
 
 
 
 
-
+// import { navSingleLevel } from "./main/nav-single-level";
 
 // import { menuToggle } from "./main/menu-toggle";
 
@@ -684,17 +628,17 @@ function domLoadedActions() {
   /* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
   var navExampleSingle = document.querySelector('ul[data-component="nav-single"]');
   if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleSingle)) {
-    var siteNav = new _main_nav_single_level__WEBPACK_IMPORTED_MODULE_5__.navSingleLevel(navExampleSingle, {
-      breakpoint: 768
+    var siteNav = new navSingleLevel(navExampleSingle, {
+      breakpoint: 600
     });
     siteNav.init();
   }
 
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
-  var navExampleDouble = document.querySelector('ul[data-component="nav-double"]');
+  var navExampleDouble = document.querySelector('[data-component="nav-double"] ul');
   if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDouble)) {
-    var _siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navExampleDouble, {
-      breakpoint: 768,
+    var _siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_5__.navDoubleLevel(navExampleDouble, {
+      breakpoint: 600,
       submenuDirection: "horizontal"
     });
     _siteNav.init();
@@ -703,8 +647,8 @@ function domLoadedActions() {
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
   var navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
   if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navDoubleIntro)) {
-    var _siteNav2 = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navDoubleIntro, {
-      breakpoint: 768,
+    var _siteNav2 = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_5__.navDoubleLevel(navDoubleIntro, {
+      breakpoint: 600,
       cloneTopLevelLink: false,
       submenuDirection: "horizontal",
       submenuIntro: true

@@ -32,13 +32,26 @@
 				</a>
 			</div>
 			<nav class="main-navigation global-nav" data-component="nav-double" aria-label="Main Navigation" id="js-click-nav-vertical">
+				<button class="button button--ghost" data-trigger="mobile-nav" style="display: none;" aria-expanded="false">
+					<span class="visuallyhidden">Menu</span>
+				</button>
 				<?php
 					wp_nav_menu(
 						array(
 							'theme_location' => 'primary-menu',
 							'container' => false,
 							'menu-id' => '',
-							'menu_class' => 'clean-list'
+							'menu_class' => 'desktop-menu clean-list'
+						)
+					);
+				?>
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary-menu',
+							'container' => false,
+							'menu-id' => '',
+							'menu_class' => 'mobile-menu clean-list'
 						)
 					);
 				?>
