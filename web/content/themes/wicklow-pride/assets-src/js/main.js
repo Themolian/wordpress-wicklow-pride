@@ -1,4 +1,5 @@
 import { exists } from "./main/_exists.helper";
+import { ajax_add_to_cart } from "./main/ajax-add-to-cart";
 
 import { cardEnhancement } from "./main/cards";
 import { collapsibles } from "./main/collapsibles";
@@ -13,6 +14,7 @@ function domLoadedActions() {
 	collapsibles();
 	disclosureWidget();
 	formErrorSummary();
+	ajax_add_to_cart();
 	// menuToggle();
 
 	/* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */

@@ -27,6 +27,47 @@ var exists = function exists(elem) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ajax_add_to_cart: function() { return /* binding */ ajax_add_to_cart; }
+/* harmony export */ });
+var ajax_add_to_cart = function ajax_add_to_cart() {
+  // jQuery(document).ready(function ($) {
+  // 	$(".product-card__body button").on("click", function (e) {
+  // 		e.preventDefault();
+  // 		var button = $(this);
+  // 		console.log(button.data("productId"));
+  // 		console.log(ajax_cart_params);
+  // 		var product_id = button.data("productId");
+  // 		$.ajax({
+  // 			url: ajax_cart_params.ajax_url,
+  // 			type: "POST",
+  // 			data: {
+  // 				action: "wicklow_pride_ajax_add_to_cart",
+  // 				product_id: product_id,
+  // 				nonce: ajax_cart_params.nonce,
+  // 			},
+  // 			success: function (response) {
+  // 				console.log(response);
+  // 				if (response.success) {
+  // 					// Optionally update cart UI here
+  // 					alert("Added to cart!");
+  // 				} else {
+  // 					console.log("Could not add to cart.");
+  // 					console.log(response.error);
+  // 				}
+  // 			},
+  // 		});
+  // 	});
+  // });
+};
+
+
+/***/ }),
+/* 3 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   cardEnhancement: function() { return /* binding */ cardEnhancement; }
 /* harmony export */ });
 /* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
@@ -70,7 +111,7 @@ var cardEnhancement = function cardEnhancement() {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -134,7 +175,7 @@ var collapsibles = function collapsibles() {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -143,7 +184,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   disclosureWidget: function() { return /* binding */ disclosureWidget; }
 /* harmony export */ });
 /* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 /* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -199,7 +240,7 @@ var disclosureWidget = function disclosureWidget() {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function() {
 
 /**
@@ -224,7 +265,7 @@ if (!Element.prototype.closest) {
 }
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -248,7 +289,7 @@ var formErrorSummary = function formErrorSummary() {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -256,9 +297,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   navDoubleLevel: function() { return /* binding */ navDoubleLevel; }
 /* harmony export */ });
-/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
 /* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 /* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -490,7 +531,7 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function() {
 
 /**
@@ -604,11 +645,13 @@ var __webpack_exports__ = {};
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
-/* harmony import */ var _main_nav_double_level__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
+/* harmony import */ var _main_ajax_add_to_cart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
+/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
+/* harmony import */ var _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
+
 
 
 
@@ -619,10 +662,11 @@ __webpack_require__.r(__webpack_exports__);
 // import { menuToggle } from "./main/menu-toggle";
 
 function domLoadedActions() {
-  (0,_main_cards__WEBPACK_IMPORTED_MODULE_1__.cardEnhancement)();
-  (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_2__.collapsibles)();
-  (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
-  (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
+  (0,_main_cards__WEBPACK_IMPORTED_MODULE_2__.cardEnhancement)();
+  (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_3__.collapsibles)();
+  (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_4__.disclosureWidget)();
+  (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_5__.formErrorSummary)();
+  (0,_main_ajax_add_to_cart__WEBPACK_IMPORTED_MODULE_1__.ajax_add_to_cart)();
   // menuToggle();
 
   /* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
@@ -637,7 +681,7 @@ function domLoadedActions() {
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
   var navExampleDouble = document.querySelector('[data-component="nav-double"] ul');
   if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDouble)) {
-    var _siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_5__.navDoubleLevel(navExampleDouble, {
+    var _siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navExampleDouble, {
       breakpoint: 600,
       submenuDirection: "horizontal"
     });
@@ -647,7 +691,7 @@ function domLoadedActions() {
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
   var navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
   if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navDoubleIntro)) {
-    var _siteNav2 = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_5__.navDoubleLevel(navDoubleIntro, {
+    var _siteNav2 = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navDoubleIntro, {
       breakpoint: 600,
       cloneTopLevelLink: false,
       submenuDirection: "horizontal",

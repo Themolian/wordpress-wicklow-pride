@@ -151,6 +151,40 @@ function wicklow_pride_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'wicklow_pride_scripts' );
 
+function wicklow_enqueue_ajax_cart_script() {
+    wp_enqueue_script(
+        'wicklow-ajax-cart',
+        get_template_directory_uri() . '/js/ajax-add-to-cart.js',
+        array('jquery'),
+        null,
+        true
+    );
+    wp_localize_script('wicklow-ajax-cart', 'ajax_cart_params', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce'    => wp_create_nonce('ajax-cart-nonce')
+    ));
+}
+add_action('wp_enqueue_scripts', 'wicklow_enqueue_ajax_cart_script');
+
+function wicklow_ajax_add_to_cart() {
+    check_ajax_referer('ajax-cart-nonce', 'nonce');
+    $product_id = intval($_POST['product_id']);
+	$variation_id = intval($_POST['variation_id']);
+    if (!$product_id) {
+        wp_send_json_error(array('message' => 'Invalid product ID.'));
+    }
+    $added = WC()->cart->add_to_cart($product_id, 1, $variation_id);
+    if ($added) {
+        wp_send_json_success();
+    } else {
+		// echo "Nope rope";
+		// WC()->cart->add_to_cart(416, 1, 424);
+        wp_send_json_error(array('message' => "No chance, Lance"));
+    }
+}
+add_action('wp_ajax_wicklow_ajax_add_to_cart', 'wicklow_ajax_add_to_cart');
+add_action('wp_ajax_nopriv_wicklow_ajax_add_to_cart', 'wicklow_ajax_add_to_cart');
+
 /**
  * Implement the Custom Header feature.
  */

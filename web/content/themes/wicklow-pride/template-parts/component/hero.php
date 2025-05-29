@@ -35,4 +35,9 @@
             </div>
         <?php endif; ?>
     </div>
+	<?php
+		if ( function_exists( 'wicklow_pride_woocommerce_header_cart' ) && is_shop() ) {
+			wicklow_pride_woocommerce_header_cart();
+		}
+	?>
 </section>

@@ -215,7 +215,7 @@ if ( ! function_exists( 'wicklow_pride_woocommerce_header_cart' ) ) {
 			<li>
 				<?php
 				$instance = array(
-					'title' => '',
+					'title' => 'Cart',
 				);
 
 				the_widget( 'WC_Widget_Cart', $instance );

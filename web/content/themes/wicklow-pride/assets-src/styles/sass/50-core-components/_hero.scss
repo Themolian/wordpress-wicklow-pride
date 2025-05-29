@@ -2,79 +2,79 @@
     #Hero
 \*------------------------------------*/
 .hero {
-  background-color: black;
-  color: white;
-  position: relative;
-  text-align: center;
-  z-index: 1;
+	background-color: black;
+	color: white;
+	position: relative;
+	text-align: center;
+	z-index: 1;
 
-  h1 {
-    @include mq($bp-mob) {
-      font-size: rem(50);
-    }
-  }
+	h1 {
+		@include mq($bp-mob) {
+			font-size: rem(50);
+		}
+	}
 
-  p.hero-subheading {
-    font-weight: 700;
-    margin-inline: auto;
-    max-inline-size: rem(1200);
-    @include mq($bp-mob) {
-      font-size: rem(30);
-    }
-  }
+	p.hero-subheading {
+		font-weight: 700;
+		margin-inline: auto;
+		max-inline-size: rem(1200);
+		@include mq($bp-mob) {
+			font-size: rem(30);
+		}
+	}
 }
 
 .hero + main {
-  padding-top: 0;
+	padding-top: 0;
 }
 
 .hero-inner {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-inline: auto;
-  max-inline-size: rem($max-inline-size);
-  padding: rem(50) 0;
-  a.button--ghost--border {
-    background-color: white;
-  }
-  @include mq($bp-mob) {
-    padding: rem(100) 0;
-  }
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-inline: auto;
+	max-inline-size: rem($max-inline-size);
+	padding: rem(50) 0;
+	a.button--ghost--border {
+		background-color: white;
+	}
+	@include mq($bp-mob) {
+		padding: rem(100) 0;
+	}
 }
 
 .hero--homepage {
-  .hero-inner {
-    @include mq($bp-mob) {
-      padding: rem(200) 0;
-    }
-  }
+	.hero-inner {
+		@include mq($bp-mob) {
+			padding: rem(200) 0;
+		}
+	}
 }
 
 .hero-image,
 .hero-carousel.splide {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  opacity: 0.7;
-  z-index: -1;
-  img {
-    height: 100%;
-    object-fit: cover;
-    width: 100%;
-  }
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	opacity: 0.7;
+	z-index: -1;
+	img {
+		height: 100%;
+		object-fit: cover;
+		width: 100%;
+	}
 }
 
 // Carousel
 
 .hero-carousel {
-  .splide__track {
-    height: 100%;
-  }
-  .splide__arrows {
-    display: none;
-  }
+	.splide__track {
+		height: 100%;
+	}
+	.splide__arrows {
+		display: none;
+	}
 }

@@ -10,12 +10,10 @@
 //@import "sass/00-settings/debug";
 @import "sass/00-settings/typesetting";
 
-
 /*------------------------------------*\
     #Functions
 \*------------------------------------*/
 @import "sass/10-functions/units";
-
 
 /*------------------------------------*\
     #Mixins
@@ -24,14 +22,12 @@
 @import "sass/20-mixins/media-query";
 @import "sass/20-mixins/stack";
 
-
 /*------------------------------------*\
     #Base
 
     Repeated to allow for extending placeholders
 \*------------------------------------*/
 @import "sass/30-base/hide-and-show";
-
 
 /*------------------------------------*\
     #Advanced components
@@ -57,3 +53,4 @@
 @import "sass/70-third-party-plugins/s24-splide-carousel";
 @import "../../node_modules/tabbyjs/src/sass/tabby-ui";
 @import "sass/70-third-party-plugins/s24-tabby-ui";
+@import "sass/70-third-party-plugins/woocommerce";
