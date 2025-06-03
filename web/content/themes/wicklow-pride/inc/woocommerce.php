@@ -185,11 +185,11 @@ if ( ! function_exists( 'wicklow_pride_woocommerce_cart_link' ) ) {
 			<?php
 			$item_count_text = sprintf(
 				/* translators: number of items in the mini cart. */
-				_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'wicklow-pride' ),
+				_n( '%d', '%d', WC()->cart->get_cart_contents_count(), 'wicklow-pride' ),
 				WC()->cart->get_cart_contents_count()
 			);
 			?>
-			<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo esc_html( $item_count_text ); ?></span>
+			<span class="count"><?php echo esc_html( $item_count_text ); ?></span>
 		</a>
 		<?php
 	}

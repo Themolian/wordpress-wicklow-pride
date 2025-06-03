@@ -1,4 +1,9 @@
 jQuery(document).ready(function ($) {
+	$("body").removeClass("admin-bar");
+	$("ul.site-header-cart li:first-child").on("click", function (e) {
+		e.preventDefault();
+		$("ul.site-header-cart").toggleClass("expanded");
+	});
 	$(".ajax-add-to-cart").on("click", function (e) {
 		e.preventDefault();
 		var button = $(this);
@@ -15,12 +20,11 @@ jQuery(document).ready(function ($) {
 			},
 			success: function (response) {
 				if (response.success) {
-					// Trigger WooCommerce cart fragments refresh
-					if (typeof wc_cart_fragments_params !== "undefined") {
-						console.log(wc_cart_fragments_params);
-						$(document.body).trigger("added_to_cart");
-						alert("Added to cart!");
-					}
+					// Always trigger WooCommerce cart fragments refresh
+					$(document.body).trigger("added_to_cart");
+					// Optionally also trigger this for extra reliability:
+					$(document.body).trigger("wc_fragment_refresh");
+					alert("Added to cart!");
 				} else {
 					var msg =
 						response.data && response.data.message

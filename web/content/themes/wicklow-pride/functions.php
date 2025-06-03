@@ -177,8 +177,6 @@ function wicklow_ajax_add_to_cart() {
     if ($added) {
         wp_send_json_success();
     } else {
-		// echo "Nope rope";
-		// WC()->cart->add_to_cart(416, 1, 424);
         wp_send_json_error(array('message' => "No chance, Lance"));
     }
 }
