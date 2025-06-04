@@ -200,6 +200,10 @@ p {
   margin: 1rem 0; /* 1 */
   margin: clamp(0.5rem, 0.3rem + 1vw, 1rem) 0;
 }
+p a {
+  color: black;
+  font-weight: 700;
+}
 
 h1,
 h2,
@@ -1214,7 +1218,8 @@ label,
   max-inline-size: 41.25rem;
 }
 
-input, optgroup {
+input,
+optgroup {
   line-height: 1.15;
 }
 
@@ -1232,11 +1237,12 @@ textarea,
   -webkit-appearance: none;
           appearance: none;
   background-color: #fcfcfc;
-  border: 2px solid #8d8d8d;
-  border-radius: 0;
+  border: 3px solid black;
+  border-radius: 0.75rem;
+  font-weight: 700;
   inline-size: 100%;
   line-height: 1.25;
-  padding: 0.3125rem;
+  padding: 0.625rem 1.25rem;
 }
 
 [type=date],

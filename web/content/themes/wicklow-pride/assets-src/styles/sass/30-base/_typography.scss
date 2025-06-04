@@ -8,16 +8,20 @@
 \*------------------------------------*/
 
 body {
-  @include text-body;
-  font-family: $font-loaded-family;
-  font-style: $font-style;
-  font-weight: $font-weight;
-  line-height: 1.7; /* 2 */
+	@include text-body;
+	font-family: $font-loaded-family;
+	font-style: $font-style;
+	font-weight: $font-weight;
+	line-height: 1.7; /* 2 */
 }
 
 p {
-  margin: rem(16) 0; /* 1 */
-  margin: clamp(0.5rem, calc(0.3rem + 1vw), 1rem) 0;
+	margin: rem(16) 0; /* 1 */
+	margin: clamp(0.5rem, calc(0.3rem + 1vw), 1rem) 0;
+	a {
+		color: black;
+		font-weight: 700;
+	}
 }
 
 h1,
@@ -26,18 +30,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: $emphasis;
-  margin: 0;
-  margin-block-end: rem(16); /* 1 */
-  margin-block-end: clamp(0.5rem, calc(0.3rem + 1vw), 1rem);
+	font-weight: $emphasis;
+	margin: 0;
+	margin-block-end: rem(16); /* 1 */
+	margin-block-end: clamp(0.5rem, calc(0.3rem + 1vw), 1rem);
 }
 
 h1,
 h2,
 h3,
 h4 {
-  text-wrap: balance;
-  font-weight: 700;
+	text-wrap: balance;
+	font-weight: 700;
 }
 
 h2,
@@ -45,48 +49,48 @@ h3,
 h4,
 h5,
 h6 {
-  margin-block-start: rem(32);
+	margin-block-start: rem(32);
 }
 
 h1,
 .text-40 {
-  @include text-40;
+	@include text-40;
 }
 
 h2,
 .text-36 {
-  @include text-36;
+	@include text-36;
 }
 
 h3,
 .text-32 {
-  @include text-32;
+	@include text-32;
 }
 
 h4,
 .text-28 {
-  @include text-28;
+	@include text-28;
 }
 
 h5,
 .text-25 {
-  @include text-25;
+	@include text-25;
 }
 
 h6,
 .text-22 {
-  @include text-22;
+	@include text-22;
 }
 
 .text-17 {
-  @include text-17;
-  margin-top: 1rem;
+	@include text-17;
+	margin-top: 1rem;
 }
 
 .lead {
-  @include text-28;
-  margin-block-end: rem(48); /* 1 */
-  margin-block-end: clamp(2.5rem, calc(2.3rem + 1vw), 3rem);
+	@include text-28;
+	margin-block-end: rem(48); /* 1 */
+	margin-block-end: clamp(2.5rem, calc(2.3rem + 1vw), 3rem);
 }
 
 /**
@@ -94,12 +98,12 @@ When Font Face Observer has detected that the @font-face files are loaded, then 
 can safely use the web fonts instead of the system fonts.
  */
 .fonts-loaded body {
-  font-family: $font-loaded-family;
+	font-family: $font-loaded-family;
 }
 
 .body-content {
-  a {
-    color: black;
-    font-weight: 700;
-  }
+	a {
+		color: black;
+		font-weight: 700;
+	}
 }

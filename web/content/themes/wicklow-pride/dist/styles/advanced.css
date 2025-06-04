@@ -1473,3 +1473,79 @@ p.woocommerce-mini-cart__buttons a:hover {
 p.woocommerce-mini-cart__buttons a:first-child {
   display: none;
 }
+
+form.woocommerce-checkout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+  max-width: none;
+  width: 100%;
+}
+form.woocommerce-checkout .col2-set {
+  flex: 2;
+}
+form.woocommerce-checkout .order-review {
+  flex: 1;
+}
+@media screen and (min-width: 37.5em) {
+  form.woocommerce-checkout {
+    flex-direction: row;
+    gap: 3.75rem;
+    justify-content: space-between;
+  }
+}
+
+div.woocommerce-info {
+  background-color: transparent;
+  border: 3px solid black;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  padding: 0.625rem 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+div.woocommerce-info a {
+  color: black;
+}
+
+.woocommerce-form-coupon-toggle {
+  padding-top: 3.125rem;
+}
+
+.wc_payment_methods {
+  list-style-type: none;
+  padding: 0;
+}
+
+button[type=submit] {
+  background-color: transparent;
+  border: 3px solid black;
+  color: black;
+  font-weight: 700;
+  padding-block: 0.625rem;
+  padding-inline: 1.25rem;
+  transition: 0.2s all;
+}
+button[type=submit]#place_order {
+  margin-top: 0;
+}
+button[type=submit]:hover {
+  background-color: black;
+  border-color: transparent;
+  color: white;
+}
+
+.select2-container {
+  margin-bottom: 1.25rem;
+}
+
+.select2-container--default .select2-selection--single {
+  border: 0;
+}
+
+.select2-selection__rendered {
+  border: 3px solid black;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1.25rem;
+}
