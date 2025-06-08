@@ -11,13 +11,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** MySQL hostname */
-define('DB_HOST', '');
+define('DB_HOST', 'localhost');
 
 /** The name of the database for WordPress */
-define('DB_NAME', '');
+define('DB_NAME', 'u64425_wicklowpride_wp');
 
 /** MySQL database username */
-define('DB_USER', '');
+define('DB_USER', 'u64425_wicklowpride_wp');
 
 /** MySQL database password - set in wp-config.local.php */
 
