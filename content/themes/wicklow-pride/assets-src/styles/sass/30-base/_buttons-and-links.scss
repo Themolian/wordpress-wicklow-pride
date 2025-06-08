@@ -1,0 +1,144 @@
+/*------------------------------------*\
+    #Buttons and links
+
+    1. Don't rely on colour alone for styling links - see
+    https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html
+
+    2. Remove outline on focused links when they're also active/hovered.
+
+    3. Remove text underline from links styled as buttons.
+
+    4. Prevent `.button` going full-width if a child of a flex column.
+
+    5. Meet WCAG AAA target size requirements - see
+    https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
+\*------------------------------------*/
+
+a:not([class]),
+a.with-icon--before,
+a.with-icon--after {
+  border: none;
+  color: $link-color;
+  cursor: pointer;
+  text-decoration: underline; /* 1 */
+  text-decoration-skip: auto; // Supported by Safari
+  text-decoration-skip-ink: auto; // Not supported by Safari
+
+  &:visited {
+    color: $link-color--visited;
+  }
+
+  &:hover {
+    color: $link-color--hover;
+    // outline-width: 0; /* 2 */
+  }
+
+  &:active {
+    color: $link-color--active;
+    outline: none; /* 2 */
+    text-decoration: underline; /* 1 */
+    text-decoration-skip: auto; // Supported by Safari
+    text-decoration-skip-ink: auto; // Not supported by Safari
+  }
+}
+
+button {
+  line-height: 1.15;
+}
+
+.button {
+  text-decoration: none; /* 3 */
+}
+
+button,
+.button,
+input[type="submit"].button {
+  align-items: center;
+  align-self: start; /* 4 */
+  background-color: $accent-color;
+  border: solid 2px $accent-color;
+  border-radius: rem(12);
+  color: $off-white;
+  display: inline-flex;
+  justify-content: center;
+  min-block-size: rem(44); /* 5 */
+  min-inline-size: 10ch;
+  padding-block: rem(10);
+  padding-inline: rem(20);
+
+  &:hover {
+    background-color: $accent-color--hover;
+    border-color: $accent-color--hover;
+  }
+
+  &:active {
+    color: $off-white;
+    background-color: $accent-color--active;
+    border-color: $accent-color--active;
+  }
+}
+
+// Full-width buttons
+.button--wide.button--wide {
+  inline-size: 100%;
+}
+
+// Alternative button style with a distinct border
+.button--alt.button--alt {
+  background-color: $off-white;
+  color: $accent-color;
+
+  &:hover {
+    background-color: $accent-color--hover;
+    color: $off-white;
+  }
+
+  &:active {
+    color: $off-white;
+    background-color: $accent-color--active;
+    border-color: $accent-color--active;
+  }
+}
+
+// For buttons with no visible background or border
+.button--ghost.button--ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: $black;
+  min-inline-size: rem(44); /* 5 */
+  padding: 0;
+
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+.button--ghost.button--ghost--border {
+  border: 3px solid black;
+  color: black;
+  font-weight: 700;
+  padding-block: rem(10);
+  padding-inline: rem(20);
+  transition: 0.2s all;
+  &.button--no-padding {
+    padding: 0;
+  }
+  &.button--padding-sm {
+    padding: rem(10) 0;
+  }
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+// Disabled buttons
+button[disabled],
+.button[disabled],
+.button.js-disabled {
+  background-color: $neutral-50;
+  border-color: $neutral-50;
+  color: $off-black;
+  cursor: not-allowed;
+}

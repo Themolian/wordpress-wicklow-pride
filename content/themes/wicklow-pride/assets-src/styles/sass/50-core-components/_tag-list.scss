@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    #Tag list
+
+    1. High contrast themes tend to eliminate background-color, so we need a border
+    to mark the shape and boundaries of each tag. Match the border-color to the
+    background-color if you do not want the border to be obvious.
+
+    2. Meet WCAG AAA target size requirements for this font size - see
+    https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
+\*------------------------------------*/
+
+.tag-list.tag-list {
+	margin: rem(-10);
+
+	li {
+		margin: rem(10);
+	}
+
+}
+
+.tag {
+	@include text-17;
+	background-color: $neutral-60;
+    border: solid 1px $neutral-60; /* 1 */
+	border-radius: rem(4);
+	color: $white;
+	display: inline-block;
+	padding: rem(9); /* 2 */
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+		text-decoration-skip: auto; // Supported by Safari
+		text-decoration-skip-ink: auto; // Not supported by Safari
+	}
+}

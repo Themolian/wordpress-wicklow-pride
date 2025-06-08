@@ -1,0 +1,36 @@
+.content-image-inner {
+  display: flex;
+  flex-direction: column;
+  @include mq($bp-mob) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.content-image__image,
+.content-image__body {
+  @media (min-width: 600px) {
+    width: 50%;
+  }
+}
+
+.content-image__image {
+  border-radius: rem(12);
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+  &:first-child {
+    @include mq($bp-mob) {
+      margin-right: rem(40);
+    }
+  }
+  &:last-child {
+    margin-top: rem(20);
+    @include mq($bp-mob) {
+      margin-left: rem(40);
+    }
+  }
+}

@@ -57,9 +57,9 @@ host('production')
     ->set('url', 'https://www.wicklowpride.com');
 
 host('staging')
-    ->set('hostname', 'ssh.gb.stackcp.com')
-    ->set('http_user', 'wicklowpride.com')
-    ->set('deploy_path', '~/staging_html')
+    ->set('hostname', 'wicklowpride.com')
+    ->set('http_user', 'u64425')
+    ->set('deploy_path', '~/domains/staging.wicklowpride.com/deployments')
     ->set('url', 'https://staging.wicklowpride.com');
 
 host('deptest')
@@ -76,5 +76,5 @@ host('deptest')
  */
 
  after('deploy:success', function() {
-    run('cp ~/domains/deptest.wicklowpride.com/deployments/current/* ~/domains/deptest.wicklowpride.com/public_html -r');
+    run('cp ~/domains/staging.wicklowpride.com/deployments/current/* ~/domains/staging.wicklowpride.com/public_html -r');
  });

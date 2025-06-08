@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    #Avatars
+\*------------------------------------*/
+
+.avatar {
+	background-color: $off-white;
+	block-size: rem(100);
+	border: solid 1px $brand-60;
+	border-radius: 50%;
+	inline-size: rem(100);
+	overflow: hidden;
+
+	img {
+		block-size: 100%;
+		inline-size: 100%;
+		object-fit: cover;
+	}
+}
+
+
+.avatar--med {
+	block-size: rem(50);
+	inline-size: rem(50);
+}
+
+
+.avatar--small {
+	block-size: rem(32);
+	inline-size: rem(32);
+}

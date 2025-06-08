@@ -1,0 +1,47 @@
+.committee-listing {
+	text-align: center;
+}
+
+.committee-listing-wrap {
+	@include mq($bp-mob) {
+		display: grid;
+		gap: rem(20);
+		grid-template-columns: repeat(auto-fit, minmax(rem(486), 1fr));
+		justify-content: space-evenly;
+		list-style: none;
+	}
+}
+
+.committee-card {
+	border-radius: rem(12);
+	margin-bottom: rem(20);
+	overflow: hidden;
+	text-align: left;
+	@include mq($bp-mob) {
+		margin-bottom: 0;
+	}
+}
+
+.committee-card__body {
+	padding: 0 rem(20) rem(20);
+}
+
+.pronouns,
+.role {
+	color: rgba(0, 0, 0, 0.7);
+	font-weight: 600;
+	font-size: rem(18);
+	margin: rem(8) 0;
+	@include mq($bp-mob) {
+		font-size: rem(22);
+	}
+}
+
+.image--no-image {
+	background-color: rgba(0, 0, 0, 0.3);
+	background-image: url(../images/logo.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: rem(130) rem(130);
+	filter: grayscale(1);
+}

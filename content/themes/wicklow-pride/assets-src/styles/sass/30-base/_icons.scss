@@ -1,0 +1,57 @@
+/*------------------------------------*\
+    #Icons
+
+    1. Make SVG using currentColor pick up correct Windows High Contrast Mode color
+    See: https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/
+\*------------------------------------*/
+
+/**
+Icons are sized relative to font size, thanks to the em unit.
+ */
+.icon {
+	block-size: 0.75em;
+	inline-size: 0.75em;
+
+    svg {
+        forced-color-adjust: auto; /* 1 */
+    }
+}
+
+
+.icon--24 {
+	block-size: rem(24);
+	inline-size: rem(24);
+}
+
+
+/**
+Use the `with-icon--before` or `with-icon--after` class
+on the icon's parent if there is a need to specify the spacing
+between text and icon. Pay attention to whether the icon comes
+before the text or after.
+
+Use `margin-inline-end` for spacing irrespective of text direction
+ */
+.with-icon--before,
+.with-icon--after {
+	align-items: center;
+	display: inline-flex;
+
+	.icon {
+		flex: 0 0 auto; // Prevent icon from shrinking
+	}
+}
+
+
+.with-icon--before {
+	.icon {
+		margin-inline-end: rem(10);
+	}
+}
+
+
+.with-icon--after {
+	.icon {
+		margin-inline-start: rem(10);
+	}
+}

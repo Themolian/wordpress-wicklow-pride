@@ -5,34 +5,34 @@
 #
 # Note: if you want to stage/commit WP core files
 # you can delete this whole section/until Configuration.
-/web/wp-admin/
-/web/content/index.php
-/web/content/languages
-/web/content/plugins/index.php
-/web/content/themes/index.php
-/web/wordpress/wp-includes/
-/web/index.php
-/web/license.txt
-/web/readme.html
-/web/wp-*.php
-/web/xmlrpc.php
+wp-admin/
+content/index.php
+content/languages
+content/plugins/index.php
+content/themes/index.php
+wordpress/wp-includes/
+index.php
+license.txt
+readme.html
+wp-*.php
+xmlrpc.php
 
 /wordpress_config.yml
 
 # Example themes
-/web/content/themes/twenty*/
+content/themes/twenty*/
 
 # Example plugin
-/web/content/plugins/hello.php
+content/plugins/hello.php
 
 # Uploads
-/web/content/uploads/
+content/uploads/
 
 # Log files
 *.log
 
 # htaccess
-/web/.htaccess
+.htaccess
 
 # All plugins
 #

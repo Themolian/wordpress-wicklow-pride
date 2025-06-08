@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    #Memorable dates (e.g. date of birth)
+\*------------------------------------*/
+
+.memorable-date {
+    display: inline-block;
+    margin-block-start: 0;
+}
+
+.memorable-date + .memorable-date {
+    margin-inline-start: 1rem;
+}
