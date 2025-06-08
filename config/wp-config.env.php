@@ -27,8 +27,9 @@ $env = [
         'ssl'    => false,
     ],
     'staging'     => [
-        'domain' => 'staging.domain.com',
-        'path'   => '',
+        'domain' => 'staging.wicklowpride.com',
+        'home_path' => '',
+        'site_path'   => '/',
         'ssl'    => false,
     ],
     'development' => [
