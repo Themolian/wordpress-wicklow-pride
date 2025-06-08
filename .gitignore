@@ -16,6 +16,7 @@ license.txt
 readme.html
 wp-*.php
 xmlrpc.php
+config/wp-config.local.php
 
 /wordpress_config.yml
 
