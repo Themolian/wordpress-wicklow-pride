@@ -4154,6 +4154,151 @@ form .form-field {
   }
 }
 
+.festival-events__details-wrap > div {
+  height: 100%;
+}
+.festival-events__details-wrap .festival-events__location,
+.festival-events__details-wrap .festival-events__location-map,
+.festival-events__details-wrap .location-map {
+  height: 100%;
+}
+.festival-events__details-wrap .leaflet-map {
+  border-radius: 0.75rem;
+}
+@media screen and (min-width: 37.5em) {
+  .festival-events__details-wrap .leaflet-map {
+    height: 100% !important;
+  }
+}
+@media screen and (min-width: 37.5em) {
+  .festival-events__details-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    justify-content: space-between;
+  }
+}
+
+.festival-events__location-header {
+  padding-top: 1.5rem;
+}
+@media screen and (min-width: 37.5em) {
+  .festival-events__location-header {
+    padding-top: 3.125rem;
+  }
+}
+
+div.festival-events__details {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+div.festival-events__details[data-current-event="1"] {
+  display: block;
+}
+
+div.festival-events__switcher {
+  padding-bottom: 0;
+}
+div.festival-events__switcher ul li {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+div.festival-events__switcher ul li button {
+  background-color: white;
+  border: 0;
+  color: black;
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  height: 100%;
+  padding: 0.625rem 1.25rem;
+  transition: 0.2s all ease-in-out;
+  width: 100%;
+}
+div.festival-events__switcher ul li button:hover {
+  background-color: #d9d9d9;
+}
+div.festival-events__switcher ul li:nth-child(1n) {
+  border-bottom: 3px solid #ef3a41;
+}
+div.festival-events__switcher ul li:nth-child(2n) {
+  border-bottom: 3px solid #f7941d;
+}
+div.festival-events__switcher ul li:nth-child(3n) {
+  border-bottom: 3px solid #ffdc00;
+}
+div.festival-events__switcher ul li:nth-child(4n) {
+  border-bottom: 3px solid #71bf44;
+}
+div.festival-events__switcher ul li:nth-child(5n) {
+  border-bottom: 3px solid #0080af;
+}
+div.festival-events__switcher ul li:nth-child(6n) {
+  border-bottom: 3px solid #774ec6;
+}
+
+.festival-event {
+  border: 3px solid;
+  border-color: black;
+  border-radius: 0.75rem;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+}
+@media screen and (min-width: 37.5em) {
+  .festival-event {
+    padding: 1.875rem;
+    margin-top: 0;
+  }
+}
+
+h3.location {
+  align-items: center;
+  display: flex;
+  gap: 0.9375rem;
+  padding-top: 0;
+  margin-top: 0;
+}
+h3.location:before {
+  background: url(../svg/location.svg) no-repeat;
+  background-position: center;
+  background-size: contain;
+  content: "";
+  display: block;
+  height: 2.25rem;
+  width: 1.875rem;
+}
+
+.festival-event__header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: space-between;
+}
+.festival-event__header h3,
+.festival-event__header p {
+  margin: 0;
+  padding: 0;
+}
+.festival-event__header p {
+  align-items: center;
+  display: flex;
+  font-size: 1.25rem;
+  font-weight: bold;
+  gap: 0.9375rem;
+}
+.festival-event__header p:before {
+  background: url(../svg/calendar.svg) no-repeat;
+  background-position: center;
+  background-size: contain;
+  content: "";
+  display: block;
+  height: 1.625rem;
+  width: 1.875rem;
+}
+
 /*------------------------------------*\
     #Amplify
 

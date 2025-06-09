@@ -5,6 +5,7 @@ import { cardEnhancement } from "./main/cards";
 import { collapsibles } from "./main/collapsibles";
 import { disclosureWidget } from "./main/disclosure-widget";
 import { formErrorSummary } from "./main/form-error-summary";
+import { mapSwitcher } from "./main/map-switcher";
 // import { navSingleLevel } from "./main/nav-single-level";
 import { navDoubleLevel } from "./main/nav-double-level";
 // import { menuToggle } from "./main/menu-toggle";
@@ -15,6 +16,7 @@ function domLoadedActions() {
 	disclosureWidget();
 	formErrorSummary();
 	ajax_add_to_cart();
+	mapSwitcher();
 	// menuToggle();
 
 	/* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */

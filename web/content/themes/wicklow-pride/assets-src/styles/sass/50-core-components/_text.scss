@@ -1,8 +1,0 @@
-/*------------------------------------*\
-    #Text component
-\*------------------------------------*/
-
-.component--text > * {
-	// Restrict line-length for readability
-	max-inline-size: rem($text-measure);
-}

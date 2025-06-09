@@ -295,9 +295,48 @@ var formErrorSummary = function formErrorSummary() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   mapSwitcher: function() { return /* binding */ mapSwitcher; }
+/* harmony export */ });
+var mapSwitcher = function mapSwitcher() {
+  console.log("Loaded map switcher code");
+  var eventButtons = document.querySelectorAll(".festival-event__button");
+  var eventCards = document.querySelectorAll(".festival-events__details");
+  eventButtons.forEach(function (eventBtn) {
+    eventBtn.addEventListener("click", function (e) {
+      var btn = e.target;
+      var btnId = btn.dataset.eventId;
+      eventCards.forEach(function (eventCard) {
+        var isCurrentEvent = eventCard.dataset.currentEvent;
+        var cardId = eventCard.dataset.eventId;
+        if (cardId == btnId) {
+          var currentEvent = document.querySelector('[data-current-event="1"]');
+          if (eventCard.dataset.currentEvent != 1) {
+            currentEvent.dataset.currentEvent = 0;
+            eventCard.dataset.currentEvent = 1;
+          }
+        }
+      });
+
+      // if (eventCard.dataset.currentEvent != 1) {
+      // 	currentEvent.dataset.currentEvent = 0;
+      // 	eventCard.dataset.currentEvent = 1;
+      // }
+    });
+  });
+};
+
+
+
+/***/ }),
+/* 9 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   navDoubleLevel: function() { return /* binding */ navDoubleLevel; }
 /* harmony export */ });
-/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 /* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__);
@@ -531,7 +570,7 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function() {
 
 /**
@@ -650,7 +689,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 /* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
-/* harmony import */ var _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
+/* harmony import */ var _main_map_switcher__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
+/* harmony import */ var _main_nav_double_level__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(9);
+
 
 
 
@@ -667,6 +708,7 @@ function domLoadedActions() {
   (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_4__.disclosureWidget)();
   (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_5__.formErrorSummary)();
   (0,_main_ajax_add_to_cart__WEBPACK_IMPORTED_MODULE_1__.ajax_add_to_cart)();
+  (0,_main_map_switcher__WEBPACK_IMPORTED_MODULE_6__.mapSwitcher)();
   // menuToggle();
 
   /* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
@@ -681,7 +723,7 @@ function domLoadedActions() {
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
   var navExampleDouble = document.querySelector('[data-component="nav-double"] ul');
   if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDouble)) {
-    var _siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navExampleDouble, {
+    var _siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_7__.navDoubleLevel(navExampleDouble, {
       breakpoint: 600,
       submenuDirection: "horizontal"
     });
@@ -691,7 +733,7 @@ function domLoadedActions() {
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
   var navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
   if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navDoubleIntro)) {
-    var _siteNav2 = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navDoubleIntro, {
+    var _siteNav2 = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_7__.navDoubleLevel(navDoubleIntro, {
       breakpoint: 600,
       cloneTopLevelLink: false,
       submenuDirection: "horizontal",

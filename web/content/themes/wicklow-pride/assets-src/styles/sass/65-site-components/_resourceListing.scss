@@ -1,9 +1,0 @@
-.resource-listing-inner {
-  @include mq($bp-mob) {
-    display: grid;
-    gap: rem(20);
-    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
-    justify-content: space-evenly;
-    list-style: none;
-  }
-}
