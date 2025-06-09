@@ -13,6 +13,7 @@
     </div>
 </nav>
 <article class="event event-body">
+    <?php echo do_shortcode( '[geolocation]' ) ?>
     <div class="component">
         <div class="event-details">
             <?php get_the_post_thumbnail() ? the_post_thumbnail() : null ?>
