@@ -4154,6 +4154,19 @@ form .form-field {
   }
 }
 
+.festival-events {
+  margin: 0;
+  margin-top: 0;
+}
+.festival-events:before {
+  display: none;
+}
+@media screen and (min-width: 37.5em) {
+  .festival-events {
+    margin: 0;
+  }
+}
+
 .festival-events__details-wrap > div {
   height: 100%;
 }
@@ -4179,18 +4192,9 @@ form .form-field {
   }
 }
 
-.festival-events__location-header {
-  padding-top: 1.5rem;
-}
-@media screen and (min-width: 37.5em) {
-  .festival-events__location-header {
-    padding-top: 3.125rem;
-  }
-}
-
 div.festival-events__details {
   display: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 div.festival-events__details[data-current-event="1"] {
@@ -4199,6 +4203,7 @@ div.festival-events__details[data-current-event="1"] {
 
 div.festival-events__switcher {
   padding-bottom: 0;
+  padding-top: 1.875rem;
 }
 div.festival-events__switcher ul li {
   border-radius: 0.75rem;
