@@ -26,8 +26,11 @@
                                 <h3><?php the_title(); ?></h3>
                             </div>
                             <div class="festival-event__body">
-                                <?php 
-                                    if(get_field('event_description', $post->ID)) {
+                                <?php
+                                    if(get_field('teaser_description')) {
+                                        the_field('teaser_description');
+                                    }
+                                    elseif(get_field('event_description', $post->ID)) {
                                         the_field('event_description', $post->ID);
                                     }
                                 ?>

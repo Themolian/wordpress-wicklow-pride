@@ -213,6 +213,8 @@ require get_template_directory() . '/inc/custom-taxonomies.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+require get_template_directory() . '/inc/custom-leaflet.php';
+
 function slugify($text, string $divider = '-')
 {
   // replace non letter or digits by divider

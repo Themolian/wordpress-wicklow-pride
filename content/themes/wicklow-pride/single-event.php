@@ -1,5 +1,19 @@
 <?php 
     get_header();
+    
+?>
+<?php
+if(get_field('google_map_link')) {
+    $url = get_field('google_map_link');
+
+    // Use regex to extract the part between /@ and z/
+    if (preg_match('/\/@([^z\/]+)z\//', $url, $matches)) {
+        $result = explode(',', $matches[1]);
+        print_r($result);
+    } else {
+        echo "Pattern not found.";
+    }
+}
 ?>
 <nav class="breadcrumbs" aria-role="Breadcrumb">
     <div class="breadcrumbs-inner">
@@ -13,7 +27,6 @@
     </div>
 </nav>
 <article class="event event-body">
-    <?php echo do_shortcode( '[geolocation]' ) ?>
     <div class="component">
         <div class="event-details">
             <?php get_the_post_thumbnail() ? the_post_thumbnail() : null ?>
