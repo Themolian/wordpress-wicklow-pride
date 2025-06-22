@@ -42,14 +42,13 @@
                 $event_date = get_field('start_date', $id);
                 $description = get_field('teaser_description', $id);
                 $link = get_the_permalink( $id );
-                $thumbnail = get_the_post_thumbnail( $id );
+                $thumbnail = get_the_post_thumbnail( $id, 'featuredEventImage' );
                 $currentDate = date("Y/m/d");
             ?>
             <div class="events__featured-event">
                 <div class="events__featured-event__content">
                         <div class="featured-event__image">
                             <?php echo $thumbnail; ?>
-                            <!-- <img src="{{ featuredEventImage.getUrl('featuredEventImage') }}" alt="{{ featuredEventImage.alt }}"> -->
                             <?php if($event_date < $currentDate) : ?>
                                 <p class="notice">This event has passed</p>
                             <?php endif; ?>
@@ -74,8 +73,8 @@
                     <article class="event-card">
                         <?php if(has_post_thumbnail()) : ?>
                             <div class="event-card__image">
-                                <?php the_post_thumbnail(); ?>
-                                <?php if(get_field('start_date') < date('c')) : ?>
+                                <?php the_post_thumbnail('eventCardImage'); ?>
+                                <?php if(hasPassed(get_field('start_date'))) : ?>
                                     <p class="notice">This event has passed</p>
                                 <?php endif; ?>
                             </div>
@@ -91,6 +90,7 @@
                             <?php if(get_field('teaser_description')) : ?>
                                 <p><?php echo get_field('teaser_description'); ?></p>
                             <?php endif; ?>
+                            <a href="<?php echo get_the_permalink(); ?>" class="button button--ghost button--ghost--border">Check it out</a>
                         </div>
                     </article>
                 <?php endwhile; ?>

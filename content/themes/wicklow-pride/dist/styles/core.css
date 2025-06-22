@@ -3415,7 +3415,16 @@ a.phone img {
 
 .event.event-body {
   margin-inline: auto;
-  max-inline-size: 93.75rem;
+  max-inline-size: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1.875rem;
+}
+@media screen and (min-width: 37.5em) {
+  .event.event-body {
+    padding-bottom: 3.125rem;
+  }
 }
 
 .events-inner {
@@ -3425,6 +3434,7 @@ a.phone img {
 
 div.event-details {
   padding-bottom: 0;
+  text-align: left;
 }
 div.event-details p {
   align-items: center;
@@ -3446,6 +3456,23 @@ div.event-details p.time:before {
   background: url(../svg/clock.svg) no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+.event-details__image {
+  border-radius: 0.75rem;
+  border: 3px solid black;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+.event-details__image img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
 }
 
 .events__featured-event {
@@ -3517,12 +3544,15 @@ div.event-details p.time:before {
 }
 
 .event-card__image {
+  height: 13.75rem; /* The height of the eventCardImage image size*/
   overflow: hidden;
 }
 .event-card__image img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   width: 100%;
 }
 

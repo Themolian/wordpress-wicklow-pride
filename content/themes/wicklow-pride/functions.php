@@ -215,6 +215,8 @@ require get_template_directory() . '/inc/customizer.php';
 
 require get_template_directory() . '/inc/custom-leaflet.php';
 
+require get_template_directory() . '/inc/custom-image-sizes.php';
+
 function slugify($text, string $divider = '-')
 {
   // replace non letter or digits by divider
@@ -240,6 +242,14 @@ function slugify($text, string $divider = '-')
   }
 
   return $text;
+}
+
+function hasPassed($event_date) {
+	$date_passed_check = DateTime::createFromFormat('d/m/Y g:i a', $event_date);
+
+	if($date_passed_check->format('Ymd') < date('Ymd')) {
+		return true;
+	}
 }
 
 /**

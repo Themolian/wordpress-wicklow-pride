@@ -29,7 +29,11 @@ if(get_field('google_map_link')) {
 <article class="event event-body">
     <div class="component">
         <div class="event-details">
-            <?php get_the_post_thumbnail() ? the_post_thumbnail() : null ?>
+            <?php if(has_post_thumbnail()) : ?>
+                <div class="event-details__image">
+                    <?php get_the_post_thumbnail() ? the_post_thumbnail('eventCardImage') : null ?>
+                </div>
+            <?php endif; ?>
             <?php if(get_field('venue')) : ?>
                 <p class="location"><?php echo get_field('venue'); ?></p>
             <?php endif; ?>
