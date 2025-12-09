@@ -43,14 +43,14 @@
                 $description = get_field('teaser_description', $id);
                 $link = get_the_permalink( $id );
                 $thumbnail = get_the_post_thumbnail( $id );
-                $currentDate = date("Y/m/d");
+                $currentDate = date("Y-m-d");
             ?>
             <div class="events__featured-event">
                 <div class="events__featured-event__content">
                         <div class="featured-event__image">
                             <?php echo $thumbnail; ?>
                             <!-- <img src="{{ featuredEventImage.getUrl('featuredEventImage') }}" alt="{{ featuredEventImage.alt }}"> -->
-                            <?php if($event_date < $currentDate) : ?>
+                            <?php if(strtotime($event_date) < strtotime($currentDate)) : ?>
                                 <p class="notice">This event has passed</p>
                             <?php endif; ?>
                         </div>
@@ -75,12 +75,18 @@
                         <?php if(has_post_thumbnail()) : ?>
                             <div class="event-card__image">
                                 <?php the_post_thumbnail(); ?>
-                                <?php if(get_field('start_date') < date('c')) : ?>
+                                <?php 
+                                    $event_date = get_field('start_date');
+                                    $currentDate = date("d/m/Y h:i A");
+                                ?>
+                                <?php if(strtotime($event_date) <= strtotime($currentDate)) : ?>
                                     <p class="notice">This event has passed</p>
                                 <?php endif; ?>
                             </div>
                         <?php endif; ?>
                         <div class="event-card__body">
+                            <?php echo $event_date; ?>
+                            <?php echo $currentDate; ?>
                             <?php 
                                 $event_title = get_the_title();
                                 if(get_field('teaser_title')) {
